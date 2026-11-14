@@ -56,7 +56,7 @@ export const PIECES = [
   { id: 'beethoven-ode-joie', section: 'etudes', composer: 'beethoven', title: 'Ode à la joie', work: '9e symphonie', year: '1824', level: 1,
     desc: 'La grande mélodie de la 9e symphonie, devenue l’hymne de l’Europe. Beethoven était déjà complètement sourd quand il l’a écrite !' },
   { id: 'mozart-ah-vous-dirai-je', section: 'etudes', composer: 'mozart', title: 'Ah ! vous dirai-je, maman', work: 'K. 265', year: '1781', level: 1,
-    desc: 'Mozart a écrit 12 variations sur cette chanson française. Tu la connais peut-être aussi en anglais : « Twinkle, twinkle, little star ».' },
+    desc: 'Mozart a écrit 12 variations sur cette chanson française. Tu la connais peut-être aussi en anglais : « Twinkle, twinkle, little star ». Ici, tu entends le thème : la chanson elle-même, avant les variations.' },
   { id: 'schumann-melodie', section: 'etudes', composer: 'schumann', title: 'Mélodie', work: 'op. 68 n° 1', year: '1848', level: 1,
     desc: 'Le premier morceau de l’« Album pour la jeunesse », que Schumann a écrit pour ses enfants.' },
   { id: 'petzold-menuet-sol', section: 'etudes', composer: 'petzold', title: 'Menuet en sol majeur', work: 'BWV Anh. 114', year: '1725', level: 2,
