@@ -1,6 +1,6 @@
 // Reconnaître la couleur des accords.
 import { CHORDS, CHORD_BY_ID, chordNotes } from '../music.js';
-import { playNote, playChord } from '../audio.js';
+import { playNote, playChord, stopMusic } from '../audio.js';
 import { pickWeighted } from '../adaptive.js';
 import { h, answerButton } from '../ui.js';
 import { ICONS, toolButton, miniPiano, midiLabel } from './common.js';
@@ -23,7 +23,7 @@ export default {
   color: '#34c995',
   icon: ICONS.chords,
   ask: 'Quelle est la couleur de cet accord ?',
-  autoDelay: 1900,
+  autoDelay: 2200,
   levels: LEVELS,
 
   allItemKeys() {
@@ -49,6 +49,7 @@ export default {
     let glowTimer = 0;
 
     function playQuestion(arp = level.arp) {
+      stopMusic(); // « Réécouter » recommence au lieu d'empiler les accords
       playChord(q.notes, { dur: 1.7 });
       let len = 1700;
       if (arp) {
@@ -65,8 +66,11 @@ export default {
     api.key(' ', () => playQuestion());
 
     let buttons = [];
+    let revealTimer = 0;
+    api.onCleanup(() => clearTimeout(revealTimer));
     function choose(id) {
       if (api.isAnswered()) return;
+      stopMusic(); // on peut répondre pendant l'arpège : on le coupe avant la correction
       const correct = id === q.key;
       buttons[level.ids.indexOf(id)]?.classList.add(correct ? 'good' : 'bad');
       if (!correct) buttons[level.ids.indexOf(q.key)]?.classList.add('reveal');
@@ -76,7 +80,9 @@ export default {
         h('div', { class: 'reveal-text' }, `${midiLabel(q.root, api.secondary)} ${c.name.toLowerCase()} : ${c.mood} ${c.emoji}`,
           h('span', { class: 'hint' }, `Notes : ${q.notes.map((m) => midiLabel(m, api.secondary)).join(', ')}`)),
       );
-      setTimeout(() => playQuestion(true), 250);
+      // Bonne réponse : on réentend l'accord (l'appli passe seule à la suite).
+      // Erreur : accord + arpège, l'enfant passe à la suite quand il veut.
+      revealTimer = setTimeout(() => playQuestion(!correct), 250);
       api.answer(correct);
     }
 

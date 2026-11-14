@@ -1,6 +1,6 @@
 // Reconnaître les intervalles à l'oreille.
 import { INTERVALS, INTERVAL_BY_ID, diatonicIndex, noteToMidi, midiToNote, noteName } from '../music.js';
-import { playNote } from '../audio.js';
+import { playNote, stopMusic } from '../audio.js';
 import { pickWeighted } from '../adaptive.js';
 import { h, answerButton } from '../ui.js';
 import { ICONS, toolButton, miniPiano, fullName } from './common.js';
@@ -41,6 +41,7 @@ export default {
   color: '#9b83ff',
   icon: ICONS.intervals,
   ask: 'Quel est cet intervalle ?',
+  autoDelay: 2300,
   levels: LEVELS,
 
   allItemKeys() {
@@ -67,6 +68,7 @@ export default {
     let glowTimer = 0;
 
     function playQuestion() {
+      stopMusic(); // « Réécouter » recommence au lieu d'empiler les notes
       if (q.dir === 'harm') {
         playNote(q.low, { dur: 1.8, vel: 0.6 });
         playNote(q.high, { dur: 1.8, vel: 0.6 });
@@ -86,8 +88,11 @@ export default {
 
     const C4 = { step: 0, alter: 0, octave: 4 };
     let buttons = [];
+    let revealTimer = 0;
+    api.onCleanup(() => clearTimeout(revealTimer));
     function choose(id) {
       if (api.isAnswered()) return;
+      stopMusic();
       const correct = id === q.key;
       buttons[level.ids.indexOf(id)]?.classList.add(correct ? 'good' : 'bad');
       if (!correct) buttons[level.ids.indexOf(q.key)]?.classList.add('reveal');
@@ -100,7 +105,7 @@ export default {
           `${fullName(a, api.secondary)}${arrow}${fullName(b, api.secondary)} : ${iv.name} (${iv.semis} demi-ton${iv.semis > 1 ? 's' : ''})`,
           iv.hint && q.dir === 'up' ? h('span', { class: 'hint' }, `Comme le début de : ${iv.hint}`) : null),
       );
-      setTimeout(playQuestion, 250);
+      revealTimer = setTimeout(playQuestion, 250);
       api.answer(correct);
     }
 

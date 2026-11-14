@@ -1,7 +1,7 @@
 // Chanter une note : le micro écoute et vérifie la justesse (peu importe l'octave).
 import { naturalRange, noteKey, parseNote, noteToMidi, noteName, midiOfFreq, centsToPitchClass, midiToNote, STEP_COLORS } from '../music.js';
 import { staffSVG } from '../staff.js';
-import { getCtx, playNote, isPlaying } from '../audio.js';
+import { getCtx, playNote, isPlaying, stopMusic } from '../audio.js';
 import { Microphone, micSupported } from '../pitch.js';
 import { pickWeighted } from '../adaptive.js';
 import { h } from '../ui.js';
@@ -143,8 +143,8 @@ export default {
     answers.append(ring, status);
 
     // --- Outils ---
-    const playTarget = () => playNote(q.midi, { dur: 1.4 });
-    const playRef = () => playNote(60, { dur: 1.2 });
+    const playTarget = () => { stopMusic(); playNote(q.midi, { dur: 1.4 }); };
+    const playRef = () => { stopMusic(); playNote(60, { dur: 1.2 }); };
     if (level.mode === 'echo') tools.append(toolButton('▶ Écouter la note', playTarget));
     tools.append(toolButton('🎵 Do (repère)', playRef));
     const skip = toolButton('Passer ⏭', () => finish(false));
@@ -223,7 +223,7 @@ export default {
       skip.disabled = true;
       ringFill.setAttribute('stroke-dashoffset', correct ? '0' : String(C));
       status.textContent = correct ? 'Bravo, c’était juste ! 🎉' : `Écoute : voici le ${noteName(q.note)}.`;
-      if (!correct) playNote(q.midi, { delay: 0.3, dur: 1.4 });
+      if (!correct) { stopMusic(); playNote(q.midi, { delay: 0.3, dur: 1.4 }); }
       api.answer(correct);
     }
 

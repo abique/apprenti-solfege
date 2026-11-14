@@ -111,6 +111,8 @@ export function runExercise(ctx, cat) {
   function next() {
     if (disposed) return;
     cleanupQuestion();
+    // Coupe proprement tout ce qui sonne encore (accord, arpège programmé, réverbération…).
+    stopAll();
     stage.replaceChildren();
     tools.replaceChildren();
     answers.replaceChildren();

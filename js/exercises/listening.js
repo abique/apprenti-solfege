@@ -1,7 +1,7 @@
 // Reconnaître une note à l'oreille (avec le Do comme repère).
 import { midiToNote, noteName, noteSubName, pitchClass, STEP_COLORS } from '../music.js';
 import { staffSVG } from '../staff.js';
-import { playNote } from '../audio.js';
+import { playNote, stopMusic } from '../audio.js';
 import { onMidi } from '../midi.js';
 import { pickWeighted } from '../adaptive.js';
 import { h, answerButton } from '../ui.js';
@@ -59,6 +59,7 @@ export default {
       playTimer = setTimeout(() => orb.classList.remove('playing'), ms);
     }
     function playQuestion(withRef = level.ref) {
+      stopMusic();
       if (withRef) {
         playNote(q.ref, { dur: 0.9 });
         playNote(q.midi, { delay: 1.0, dur: 1.3 });
@@ -69,6 +70,7 @@ export default {
       }
     }
     function playRef() {
+      stopMusic();
       playNote(q.ref, { dur: 1.0 });
     }
     orb.onclick = () => playQuestion();
@@ -92,6 +94,7 @@ export default {
       const { main, sub } = noteLabel(note, secondary);
       const color = STEP_COLORS[note.step];
       stage.replaceChildren(h('div', { class: 'staff-box small', html: staffSVG({ clef, columns: [{ notes: [note], color, label: sub ? `${main} · ${sub}` : main, labelColor: color }], minWidth: 150 }) }));
+      stopMusic(); // la note mystère peut encore être programmée si on répond vite
       playNote(q.midi, { delay: 0.2, dur: 1.2 });
       api.answer(correct);
     }
