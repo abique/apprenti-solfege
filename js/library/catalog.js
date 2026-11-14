@@ -32,7 +32,7 @@ export const PIECES = [
   { id: 'mozart-marche-turque', section: 'maitres', composer: 'mozart', title: 'Marche turque', work: 'K. 331', year: '1783',
     desc: 'Mozart imite les fanfares militaires turques, très à la mode à Vienne à son époque. Ça sautille !' },
   { id: 'mozart-petite-musique-de-nuit', section: 'maitres', composer: 'mozart', title: 'Une petite musique de nuit', work: 'K. 525', year: '1787',
-    desc: 'Écrite pour un petit orchestre à cordes. Voici le début au piano : c’est l’un des airs les plus connus au monde.' },
+    desc: 'Écrite pour un petit orchestre à cordes, c’est l’un des airs les plus connus au monde. Voici le premier mouvement en entier, arrangé pour piano.' },
   { id: 'beethoven-lettre-a-elise', section: 'maitres', composer: 'beethoven', title: 'Lettre à Élise', work: 'WoO 59', year: '1810',
     desc: 'Beethoven l’a écrite vers 1810, mais elle n’a été retrouvée et publiée qu’en 1867, 40 ans après sa mort. Personne ne sait vraiment qui était Élise !' },
   { id: 'beethoven-clair-de-lune', section: 'maitres', composer: 'beethoven', title: 'Sonate « Clair de lune »', work: 'op. 27 n° 2', year: '1801',

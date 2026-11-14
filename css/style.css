@@ -619,6 +619,7 @@ input[type="range"] { accent-color: var(--lav); width: min(320px, 100%); height:
 
 .score-title h1 { font-size: 1.5rem; }
 .score-about { padding: 14px 16px; display: flex; gap: 14px; align-items: center; }
+.score-about .chip { white-space: normal; margin-top: 6px; }
 .score-companion { width: 74px; flex: 0 0 74px; }
 .score-companion svg { width: 100%; height: auto; }
 .score-controls {

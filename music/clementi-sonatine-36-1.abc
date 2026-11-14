@@ -1,6 +1,7 @@
 X:1
 T:Sonatine en do majeur, op. 36 n° 1
-T:1er mouvement (Spiritoso) · Exposition : mesures 1 à 15
+T:Version complète
+T:1er mouvement (Spiritoso)
 C:Muzio Clementi
 M:4/4
 L:1/8
@@ -9,11 +10,23 @@ K:C
 %%score {RH | LH}
 V:RH clef=treble
 V:LH clef=bass
-[V:RH] |: c2 ec G2 G2 | c2 ec G2 g2 | fedc BcBc | dcBA G2 z2 |
-[V:LH] |: C,2 z2 z4 | C,2 z2 z4 | C,2 z2 C,2 z2 | G,,2 z2 G,F,E,D, |
-[V:RH] c2 ec G2 G2 | e2 ge c2 ec | dBcA BGA^F | GABc de^fg |
-[V:LH] C,2 z2 z4 | C2 z2 z2 ^F,2 | G,2 C,2 D,2 D,,2 | G,,2 z2 z4 |
-[V:RH] A2 a2 a2 a2 | Bcde ^fgab | c2 c'2 c'2 c'2 | dgbd' c'bag |
-[V:LH] ^F,DA,D F,DA,D | G,2 z2 z4 | A,DCD A,DCD | B,2 z2 z4 |
-[V:RH] ^fegf agfe | edcB dcBA | G4 z4 :|
-[V:LH] C2 z2 C,2 z2 | D,2 z2 D,,2 z2 | G,,B,,D,G, G,,2 z2 :|
+[V:RH] |: c2 ec G2 G2 | c2 ec G2 g2 | fe dc Bc Bc | dc BA G2 z2 |
+[V:LH] |: C,2 z6 | C,2 z6 | C,2 z2 C,2 z2 | G,,2 z2 G,F, E,D, |
+[V:RH] c2 ec G2 G2 | e2 ge c2 ec | dB cA BG A^F | GA Bc de ^fg |
+[V:LH] C,2 z6 | C2 z4 ^F,2 | G,2 C,2 D,2 D,,2 | G,,2 z6 |
+[V:RH] A2 a2 a2 a2 | Bc de ^fg ab | c2 c'2 c'2 c'2 | dg bd' c'b ag |
+[V:LH] ^F,D A,D F,D A,D | G,2 z6 | A,D CD A,D CD | B,2 z6 |
+[V:RH] ^fe gf ag fe | ed cB dc BA | G4 z4 :: B2 dB G2 G2 |
+[V:LH] C2 z2 C,2 z2 | D,2 z2 D,,2 z2 | G,,B,, D,G, G,,2 z2 :: F8 |
+[V:RH] c2 _ec G2 g2 | f2 d2 _e2 c2 | Bc dB G2 G2 | gG gG gG gG |
+[V:LH] _E8 | B,4 C4 | G,4 z4 | F2 G,2 D2 G,2 |
+[V:RH] gG gG gG gG | d_e fd fe dc | [Bg]2 z6 | C2 EC G,2 G,2 |
+[V:LH] _E2 G,2 C2 G,2 | B,2 z2 C2 z2 | G,2 G,,2 G,F, E,D, | C,2 z6 |
+[V:RH] C2 EC G,2 G2 | FE DC B,C B,C | DC B,A, G,2 z2 | C2 G,C E2 E2 |
+[V:LH] C,2 z6 | C,2 z2 C,2 z2 | G,,2 z2 G,,F,, E,,D,, | C,,2 z6 |
+[V:RH] E2 CE G2 c2 | [EG]2 [DF]2 [CE]2 [B,D]2 | CD EF GA Bc | D2 d2 d2 d2 |
+[V:LH] C,2 z6 | G,2 z2 G,,2 z2 | C,2 z6 | B,,G, D,G, B,,G, D,G, |
+[V:RH] EF GA Bc de | F2 f2 f2 f2 | Gc eg fe dc | ag fe dc BA |
+[V:LH] C,2 z6 | D,G, F,G, D,G, F,G, | E,2 z6 | F,2 z2 F,2 z2 |
+[V:RH] GA FG EF DE | C2 z6 :|
+[V:LH] G,2 z2 G,,2 z2 | C,,E,, G,,C, C,,2 z2 :|
