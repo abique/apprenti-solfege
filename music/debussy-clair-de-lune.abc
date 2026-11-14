@@ -1,0 +1,24 @@
+X:1
+T:Clair de lune
+T:Extrait : mesures 1 à 14
+C:Claude Debussy
+M:9/8
+L:1/8
+Q:3/8=46
+K:Db
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=treble
+% Andante très expressif
+[V:RH] !pp!z2 ([fa]4 [df]3-) | ([df] [ce] [df] [ce]6-) | ([ce] [Bd] [ce] (2df- (2fd- & z3 B6- |
+[V:LH] z [FA]2-[FA]6 | [G__B]6-[GB]3 | [FA]6-[FA]3 |
+[V:RH] d c d c6-) & B A B A6 | (cBcB eBAB A- & G6 G3 | AGA G3 F3-) & E6 E3 |
+[V:LH] [EG]6-[EG]3 | [DE]6 [CE]3 | [K:clef=bass] [B,D]6 [=A,C]3 |
+[V:RH] (FFGF BFEF E- & D6-D3 | EDE D3 C3 & B,6 A,3 | z [F,A,]2 [fa]3 [df]3-) |
+[V:LH] [K:clef=bass] B,6-B,3 & A,6 G,3 | F,6 (2E,A,,- & A,6 G,3 | [D,,A,,] z [K:clef=treble] [FA]-[FA]6 |
+[V:RH] ([df] ef e6-) & z [GB]2-[GB]6 | (e [Dd] [Ee] a3 f3-) & z A2 [Ad]3 [Fd]3 |
+[V:LH] [K:clef=bass] [G,,D,]6 z3 & z [D,G,B,D]2-[D,G,B,D]6 | [F,,D,]6 z3 & z [F,A,]2 [DF]3 [A,D]3 |
+[V:RH] (fef e3 d3-) & z [GB]2-[GB]6 | (d !crescendo(![Dd] [Ee] (2!crescendo)![Bb][Aa]- (2[Aa][Ff] & z A2 f6 |
+[V:LH] [K:clef=bass] [G,,D,]6 z3 & z [D,G,B,D]2-[D,G,B,D]6 | A,,6-A,,3 & z [F,_C]2 [CDF]3-[CDF] z z |
+[V:RH] fef (2!diminuendo(!ed- (2d!diminuendo)!B) & z [FB]2-[FB]6 |]
+[V:LH] [K:clef=bass] B,,6 z3 & z [F,B,E]2- (2[F,B,E]-[F,B,D]- [F,B,D]3 |]

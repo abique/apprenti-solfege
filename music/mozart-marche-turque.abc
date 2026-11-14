@@ -1,0 +1,26 @@
+X:1
+T:Marche turque
+T:Rondo « alla turca », sonate K. 331
+T:Extrait : mesures 1 à 24 (partie en la mineur)
+C:Wolfgang Amadeus Mozart
+M:2/4
+L:1/8
+Q:1/4=112
+K:Am
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] !p!B/A/^G/A/ |: c z d/c/B/c/ | e z f/e/^d/e/ |
+[V:LH] z2 |: A, [CE][CE][CE] | A, [CE][CE][CE] |
+[V:RH] b/a/^g/a/ b/a/g/a/ | c'2 a c' | {ga}b [^fa][eg][fa] | {ga}b [^fa][eg][fa] |
+[V:LH] A, [CE] A, [CE] | A, [CE][CE][CE] | E, [B,E][B,E][B,E] | E, [B,E][B,E][B,E] |
+[V:RH] {ga}b [^fa][eg][^df] |[1 e2 B/A/^G/A/ :|[2 e2 [ce][=d=f] |: [eg][eg] a/g/f/e/ |
+[V:LH] E, [B,E] B,, B, |[1 E,2 z2 :|[2 E,2 z2 |: C, C E, E |
+[V:RH] [Bd-][Gd] [ce][df] | [eg][eg] a/g/f/e/ | [Bd]2 [Ac][Bd] | [ce][ce] f/e/d/c/ |
+[V:LH] G,2 z2 | C, C E, E | G,2 z2 | A,, A, C, C |
+[V:RH] [^GB-][EB] [Ac][Bd] | [ce][ce] f/e/d/c/ | [^GB]2 B/A/G/A/ | c z d/c/B/c/ |
+[V:LH] E,2 z2 | A,, A, C, C | E,2 z2 | A, [CE][CE][CE] |
+[V:RH] e z f/e/^d/e/ | !crescendo(!b/a/^g/a/ b/a/g/!crescendo)!a/ | !sfz!c'2 !p!a b | c' b a ^g |
+[V:LH] A, [CE][CE][CE] | A, [CE] A, [CE] | F, [A,^D][A,D][A,D] | E, [A,E] =D, [F,B,] |
+[V:RH] a e f d | c2 B3/2A/4B/4 |[1 A2 [ce][df] :|[2 A2 |]
+[V:LH] C, [E,A,] D, [F,B,] | [E,A,][E,A,] [E,^G,][E,^G,] |[1 [A,,A,]2 z2 :|[2 [A,,A,]2 |]

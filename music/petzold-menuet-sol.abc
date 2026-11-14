@@ -1,0 +1,27 @@
+X:1
+T:Menuet en sol majeur
+T:Version complète · BWV Anh. 114
+C:Christian Petzold
+M:3/4
+L:1/8
+Q:1/4=112
+K:G
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] |: d2 GA Bc | d2 G2 G2 | e2 cd ef | g2 G2 G2 |
+[V:LH] |: [G,B,D]4 A,2 | B,6 | C6 | B,6 |
+[V:RH] c2 dc BA | B2 cB AG | F2 GA BG | {B}A6 |
+[V:LH] A,6 | G,6 | D2 B,2 G,2 | D2 D,C B,A, |
+[V:RH] d2 GA Bc | d2 G2 G2 | e2 cd ef | g2 G2 G2 |
+[V:LH] B,4 A,2 | G,2 B,2 G,2 | C6 | B,2 CB, A,G, |
+[V:RH] c2 dc BA | B2 cB AG | A2 BA GF | G6 :|
+[V:LH] A,4 F,2 | G,4 B,2 | C2 D2 D,2 | G,4 G,,2 :|
+[V:RH] |: b2 ga bg | a2 de fd | g2 ef gd | ^c2 Bc A2 |
+[V:LH] |: G,6 | F,6 | E,2 G,2 E,2 | A,4 A,,2 |
+[V:RH] AB ^cd ef | g2 f2 e2 | f2 A2 ^c2 | d6 |
+[V:LH] A,6 | B,2 D2 ^C2 | D2 F,2 A,2 | D2 D,2 =C2 |
+[V:RH] d2 GF G2 | e2 GF G2 | d2 c2 B2 | AG FG A2 |
+[V:LH] B,2- [B,D-]2 [B,D]2 | C2- [CE-]2 [CE]2 | B,2 A,2 G,2 | D4 z2 |
+[V:RH] DE FG AB | c2 B2 A2 | Bd G2 F2 | [B,DG]6 :|
+[V:LH] D,4- [D,F,]2 | E,2 G,2 F,2 | G,2 B,,2 D,2 | G,2 D,2 G,,2 :|

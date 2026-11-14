@@ -65,7 +65,12 @@ export function renderHome({ app, navigate }) {
     h('div', {}, h('div', { class: 'cat-title' }, 'Piano libre'), h('div', { class: 'cat-sub' }, 'Jouer, écouter et voir les notes sur la portée')),
     h('div', { class: 'cat-foot' }, h('div', { class: 'cat-level' }, 'Pour découvrir et s’amuser 🎹')));
 
+  const concert = h('button', { class: 'cat-card', type: 'button', style: '--c:#e36fc6', onclick: () => navigate('#/library') },
+    h('div', { class: 'cat-icon', html: ICONS.concert }),
+    h('div', {}, h('div', { class: 'cat-title' }, 'Salle de concert'), h('div', { class: 'cat-sub' }, 'Écouter Bach, Mozart, Chopin, Debussy… avec la partition')),
+    h('div', { class: 'cat-foot' }, h('div', { class: 'cat-level' }, 'Grands compositeurs · Morceaux d’étude · Mes morceaux')));
+
   app.append(topbar,
     h('div', { class: 'home-hero' }, companion, bubble),
-    h('div', { class: 'cat-grid' }, cards, piano));
+    h('div', { class: 'cat-grid' }, cards, piano, concert));
 }

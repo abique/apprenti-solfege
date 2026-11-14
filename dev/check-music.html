@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Vérification des partitions (dev)</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 16px; color: #3b3355; }
+  .ok { color: #1b9466; } .bad { color: #d6455d; } .warn { color: #c77700; }
+  pre { white-space: pre-wrap; font-size: 12px; background: #f6f3fb; padding: 8px; border-radius: 8px; }
+  h2 { font-size: 16px; margin: 18px 0 4px; }
+</style>
+</head>
+<body>
+<h1>Vérification des partitions</h1>
+<p>Pour chaque fichier <code>music/*.abc</code> du catalogue : avertissements d'abcjs, durée de chaque mesure de chaque voix, même nombre de mesures aux deux mains.</p>
+<div id="out">Chargement…</div>
+<script src="../vendor/abcjs-basic-min.js"></script>
+<script type="module">
+import { PIECES } from '../js/library/catalog.js';
+
+const out = document.getElementById('out');
+const EPS = 1e-6;
+
+function measures(tune) {
+  // Pour chaque portée/voix : liste des durées de mesures (en rondes).
+  const result = {};
+  let meter = meterValue(tune.getMeterFraction());
+  for (const line of tune.lines) {
+    if (!line.staff) continue;
+    line.staff.forEach((staff, si) => {
+      staff.voices.forEach((voice, vi) => {
+        const key = `${si}.${vi}`;
+        const r = result[key] || (result[key] = { bars: [], cur: 0, meter, meters: [] });
+        let triplet = 1;
+        for (const el of voice) {
+          if (el.el_type === 'meter' && el.value?.[0]) r.meter = Number(el.value[0].num) / Number(el.value[0].den);
+          if (el.el_type === 'note' && el.duration) {
+            if (el.startTriplet) triplet = el.tripletMultiplier || 1;
+            r.cur += el.duration * triplet;
+            if (el.endTriplet) triplet = 1;
+          }
+          if (el.el_type === 'bar') {
+            if (r.cur > EPS || !r.bars.length) { r.bars.push(r.cur); r.meters.push(r.meter); }
+            r.cur = 0;
+          }
+        }
+      });
+    });
+  }
+  for (const r of Object.values(result)) if (r.cur > EPS) { r.bars.push(r.cur); r.meters.push(r.meter); }
+  return result;
+}
+
+function meterValue(f) { return f ? f.num / f.den : 1; }
+
+function fmt(x) {
+  for (const d of [1, 2, 4, 8, 16, 32, 3, 6, 12, 24, 48]) {
+    const n = x * d;
+    if (Math.abs(n - Math.round(n)) < 1e-6) return `${Math.round(n)}/${d}`;
+  }
+  return x.toFixed(4);
+}
+
+// Auto-test : les triolets doivent compter pour 2/3.
+const selfTest = ABCJS.parseOnly('X:1\nM:2/4\nL:1/8\nK:C\n(3ccc c2|]\n')[0];
+const st = measures(selfTest)['0.0'];
+const tripletsOk = st && Math.abs(st.bars[0] - 0.5) < EPS;
+
+let html = `<p class="${tripletsOk ? 'ok' : 'bad'}">Auto-test triolets : ${tripletsOk ? 'OK' : 'ÉCHEC (' + (st && fmt(st.bars[0])) + ')'}</p>`;
+let total = 0, okCount = 0;
+for (const p of PIECES) {
+  total++;
+  let text;
+  try {
+    const r = await fetch(`../music/${p.id}.abc`);
+    if (!r.ok) { html += `<h2 class="bad">✗ ${p.id}</h2><p class="bad">Fichier manquant (${r.status})</p>`; continue; }
+    text = await r.text();
+  } catch (e) { html += `<h2 class="bad">✗ ${p.id}</h2><p>${e}</p>`; continue; }
+  const tune = ABCJS.parseOnly(text)[0];
+  const problems = [];
+  for (const w of tune.warnings || []) problems.push(`abcjs : ${w.replace(/<[^>]+>/g, '')}`);
+  const m = measures(tune);
+  const voices = Object.entries(m);
+  const staffBars = {};
+  for (const [key, r] of voices) {
+    const n = r.bars.length;
+    const staff = key.split('.')[0];
+    if (key.endsWith('.0')) staffBars[staff] = n;
+    r.bars.forEach((d, i) => {
+      const expected = r.meters[i];
+      const edge = i === 0 || i === n - 1;
+      if (Math.abs(d - expected) > EPS && !(edge && d < expected)) problems.push(`portée ${key} mesure ${i + 1} : ${fmt(d)} au lieu de ${fmt(expected)}`);
+    });
+  }
+  // Lecture : une voix qui finit plus d'une mesure après les autres est décalée
+  // (ex. bourrage invisible d'abcjs mal calculé avant un « & » qui suit des triolets).
+  const scratch = document.createElement('div');
+  document.body.append(scratch);
+  const audio = ABCJS.renderAbc(scratch, text, {})[0].setUpAudio();
+  scratch.remove();
+  const ends = audio.tracks.map((t) => t.filter((e) => e.cmd === 'note').reduce((mx, e) => Math.max(mx, e.start + e.duration), 0)).filter((x) => x > 0).sort((a, b) => b - a);
+  const bar = meterValue(tune.getMeterFraction());
+  if (ends.length > 1 && ends[0] - ends[1] > bar + EPS) problems.push(`lecture : une voix finit ${fmt(ends[0] - ends[1])} de ronde après les autres (voix décalée ?)`);
+
+  const counts = Object.values(staffBars);
+  if (counts.length < 2) problems.push(`seulement ${counts.length} portée(s)`);
+  else if (new Set(counts).size > 1) problems.push(`nombre de mesures différent selon les mains : ${JSON.stringify(staffBars)}`);
+  if (!problems.length) okCount++;
+  html += `<h2 class="${problems.length ? 'bad' : 'ok'}">${problems.length ? '✗' : '✓'} ${p.id} <small>(${counts.join(' / ')} mesures)</small></h2>`;
+  if (problems.length) html += `<pre>${problems.slice(0, 30).join('\n')}${problems.length > 30 ? `\n… (${problems.length - 30} de plus)` : ''}</pre>`;
+}
+out.innerHTML = `<p><strong>${okCount}/${total}</strong> partitions sans problème.</p>` + html;
+window.__checkDone = { okCount, total };
+</script>
+</body>
+</html>

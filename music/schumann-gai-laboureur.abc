@@ -1,0 +1,24 @@
+X:1
+T:Le gai laboureur
+T:Version complète
+C:Robert Schumann
+M:4/4
+L:1/8
+Q:1/4=100
+K:F
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+% Frais et gaillard (Frisch und kräftig) : la mélodie est à la main gauche
+[V:RH] z | z [CFA] [CFA] z z [FAc] [FAc] z | z [FBd] [Bd] z z [FAc] [FAc] z | z [EBc] [EBc]2 z [CFA] [CFA]2 |
+[V:LH] !f!(C, | F,3 A, C3 F, | B, D F D C3) (A, | B, G, C, B, A, F, C, A, |
+[V:RH] z [CG] z [FG=B] z [EGc] [EGc]2 | z [CFA] [CFA] z z [FAc] [FAc] z | z [FBd] [Bd] z z [FAc] [FAc] z | z [EBc] [EBc]2 z [CFA] [CFA]2 |
+[V:LH] E,2 D,2 C,2) z (C, | F,3 A, C3 F, | B, D F D C3) (A, | B, G, C, B, A, F, C, A, |
+[V:RH] z [CG] z [FG=B] z [EGc] [EGc] !f!(C | !>!B3 A G3) (C & z [CE] [CE] z z [B,C] [B,C] z | !>!B .A .G .F G3) (C & z C C =B, z C C z |
+[V:LH] E,2 D,2 C,2) z (C, | !>!G,3 F, E,3) (C, | !>!G, .F, .E, .D, E,3) (C, |
+[V:RH] F3) (A c3) (F & z [A,C] [A,C] z z [FA] [FA] z | B d f d c3) z & z [FB] z [FB] z [FA] [FA] z | z [EBc] [EBc]2 z [CFA] [CFA] [CFA] | z [DG] z [B,C] z [A,CF] [A,CF] (C |
+[V:LH] F,3) (A, C3) (F, | B, D F D C3) (A, | B, G, C, B, A, F, C, A, | [B,,G,]2 [C,E,]2 F,2) z (C, |
+[V:RH] !>!B3 A G3) (C & z [CE] [CE] z z [B,C] [B,C] z | !>!B .A .G .F G3) (C & z C C =B, z C C z | F3) (A c3) (F & z [A,C] [A,C] z z [FA] [FA] z |
+[V:LH] !>!G,3 F, E,3) (C, | !>!G, .F, .E, .D, E,3) (C, | F,3) (A, C3) (F, |
+[V:RH] B d f d c3) z & z [FB] z [FB] z [FA] [FA] z | z [EBc] [EBc]2 z [CFA] [CFA] [CFA] | z [DG] z [B,C] z [A,CF] [A,CF] |]
+[V:LH] B, D F D C3) (A, | B, G, C, B, A, F, C, A, | [B,,G,]2 [C,E,]2 F,2) z |]

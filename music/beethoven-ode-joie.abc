@@ -1,0 +1,19 @@
+X:1
+T:Ode à la joie
+T:Arrangement simple (9e symphonie)
+C:Ludwig van Beethoven
+M:4/4
+L:1/4
+Q:1/4=104
+K:C
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] !mf! E E F G | G F E D | C C D E | E>D D2 |
+[V:LH] C,2 E,2 | G,,2 B,,2 | C,2 E,2 | G,,4 |
+[V:RH] E E F G | G F E D | C C D E | D>C C2 |
+[V:LH] C,2 E,2 | G,,2 B,,2 | C,2 E,2 | G,,2 C,2 |
+[V:RH] D D E C | D E/F/ E C | D E/F/ E D | C D G,2 |
+[V:LH] G,,2 C,2 | G,,2 C,2 | G,,2 B,,2 | C,2 G,,2 |
+[V:RH] E E F G | G F E D | C C D E | D>C C2 |]
+[V:LH] C,2 E,2 | G,,2 B,,2 | C,2 E,2 | G,,2 C,2 |]

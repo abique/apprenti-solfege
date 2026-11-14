@@ -1,0 +1,28 @@
+X:1
+T:Vieille chanson française
+T:Version complète
+C:Piotr Ilitch Tchaïkovski
+M:2/4
+L:1/8
+Q:1/4=66
+K:Gm
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+% Moderato assai
+[V:RH] !p!(D | GABc | d3) (d | cdec | d3) (d |
+[V:LH] z | (B,CDC & G,4- | B,4) & G,2 G,2- | (E2 C2 & G,4- | B,2) (G,2 & G,2 G,2- |
+[V:RH] cdec | d e/d/ cB | A7/2 G/ | G3) !pp!(D |
+[V:LH] E2 C2 & G,4- | B,2 G,2) & G,2 G,2 | C4 & ^F,2 D,2 | [G,B,]2 .G,,2 |
+[V:RH] GABc | d3) (d | cdec | d3) (d |
+[V:LH] (B,CDC & G,4- | B,4) & G,2 G,2- | (E2 C2 & G,4- | B,2) (G,2 & G,2 G,2- |
+[V:RH] cdec | d e/d/ cB | A7/2 G/ | G4) |
+[V:LH] E2 C2 & G,4- | B,2 G,2) & G,2 G,2 | C4 & ^F,2 D,2 | [G,B,]4 |
+[V:RH] !p!(G2 GA | B3) (B | c2) (c2 | !crescendo(!A3) (A |
+[V:LH] .C, .G, .C .E | .G,, .G, .C .E | .C, .G, .C .E | .D, .A, .C .^F |
+[V:RH] d3 !crescendo)!d | !mf!e f/e/ dc | B2 !diminuendo(!AG | [^FA]3) !diminuendo)!!p!(D |
+[V:LH] ([G,B,] D G) z | ([CEG]4 | [DG]2) z2 | (D2 D,2) |
+[V:RH] GABc | d3) (d | cdec | d3) (d |
+[V:LH] (B,CDC & G,4- | B,4) & G,2 G,2- | (E2 C2 & G,4- | B,2) (G,2 & G,2 G,2- |
+[V:RH] cdec | d e/d/ cB | A7/2 G/ & E2 D2 | [B,G]4) |]
+[V:LH] E2 C2 & G,4- | B,2 G,2) & G,2 G,2 | [C,G,]2 [D,^F,]2 | [G,,D,]4 |]

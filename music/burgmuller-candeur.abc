@@ -1,0 +1,28 @@
+X:1
+T:La candeur
+T:Version complète
+C:Friedrich Burgmüller
+M:4/4
+L:1/8
+Q:1/4=132
+K:C
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+% Allegro moderato
+[V:RH] |: !p!(gedc) (gedc) | !diminuendo(!(c'ag!diminuendo)!f) (c'agf) | (gedc Bcef) | (gedc Bcde) |
+[V:LH] |: [C,E,G,]8 | [C,F,A,]8 | [C,E,G,]8- | [C,E,G,]8 |
+[V:RH] !crescendo(!(gfed) (gfed) | (fedc) (fedc) | !crescendo)!(BAcB dcBA | GBcd g2) z2 :|
+[V:LH] [B,,F,G,]8 | [C,E,G,]8 | [D,^F,C]8 | [G,B,]6 z2 :|
+[V:RH] !p!(fdcB fdcB | [ce]8) | (fdcB fdcB | [ce]8) |
+[V:LH] (G,B,CD) (G,B,CD) | (G,A,B,C DCEC) | (G,B,CD) (G,B,CD) | (G,A,B,C DCEC) |
+[V:RH] g4 ^f4 & z_edc z_edc | (ag) (cdfe) (GA | !p!cB) (GAcBed | e6) z2 ||
+[V:LH] A,4 [A,C]4 | [G,CE]8 | [K:clef=treble] [G,F]4 [G,F]4 | (CEFG C2) z2 ||
+[V:RH] !p!(fdcB fdcB | [ce]8) | (fdcB fdcB | [ce]8) |
+[V:LH] [K:clef=bass] (G,B,CD) (G,B,CD) | (G,A,B,C DCEC) | (G,B,CD) (G,B,CD) | (G,A,B,C DCEC) |
+[V:RH] g4 ^f4 & z_edc z_edc | (ag) (cdfe) (GA | !p!cB) (GAcBed | cB) (cd efgc |
+[V:LH] A,4 [A,C]4 | [G,CE]8 | [K:clef=treble] [G,F]4 [G,F]4 | [CE]4 z4 |
+[V:RH] fdcB fdcB | cB) (cd efgc | fdcB fdcB |
+[V:LH] [K:clef=treble] [CF_A]4 [CF_A]4 | [CEG]8 | [CF_A]4 [CF_A]4 |
+[V:RH] c2) z2 z4 | !p![Gce]4 z4 | !pp![Ec]8 |]
+[V:LH] [K:clef=treble] [CEG]2 z2 [K:clef=bass] (C,E,F,G, | C,4) (C,E,F,G,- | [C,G,]8) |]

@@ -1,0 +1,35 @@
+X:1
+T:Prélude en do majeur
+T:Le Clavier bien tempéré, livre I · BWV 846
+C:Jean-Sébastien Bach
+M:4/4
+L:1/8
+Q:1/4=66
+K:C
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] z G/c/ e/G/c/e/ z G/c/ e/G/c/e/ | z A/d/ f/A/d/f/ z A/d/ f/A/d/f/ | z G/d/ f/G/d/f/ z G/d/ f/G/d/f/ |
+[V:LH] z/E3/-E2 z/E3/-E2 & C4 C4 | z/D3/-D2 z/D3/-D2 & C4 C4 | z/D3/-D2 z/D3/-D2 & B,4 B,4 |
+[V:RH] z G/c/ e/G/c/e/ z G/c/ e/G/c/e/ | z A/e/ a/A/e/a/ z A/e/ a/A/e/a/ | z ^F/A/ d/F/A/d/ z F/A/ d/F/A/d/ |
+[V:LH] z/E3/-E2 z/E3/-E2 & C4 C4 | z/E3/-E2 z/E3/-E2 & C4 C4 | z/D3/-D2 z/D3/-D2 & C4 C4 |
+[V:RH] z G/d/ g/G/d/g/ z G/d/ g/G/d/g/ | z E/G/ c/E/G/c/ z E/G/ c/E/G/c/ | z E/G/ c/E/G/c/ z E/G/ c/E/G/c/ |
+[V:LH] z/D3/-D2 z/D3/-D2 & B,4 B,4 | z/C3/-C2 z/C3/-C2 & B,4 B,4 | z/C3/-C2 z/C3/-C2 & A,4 A,4 |
+[V:RH] z D/^F/ c/D/F/c/ z D/F/ c/D/F/c/ | z D/G/ B/D/G/B/ z D/G/ B/D/G/B/ | z E/G/ ^c/E/G/c/ z E/G/ c/E/G/c/ |
+[V:LH] z/A,3/-A,2 z/A,3/-A,2 & D,4 D,4 | z/B,3/-B,2 z/B,3/-B,2 & G,4 G,4 | z/_B,3/-B,2 z/B,3/-B,2 & G,4 G,4 |
+[V:RH] z D/A/ d/D/A/d/ z D/A/ d/D/A/d/ | z D/F/ B/D/F/B/ z D/F/ B/D/F/B/ | z C/G/ c/C/G/c/ z C/G/ c/C/G/c/ |
+[V:LH] z/A,3/-A,2 z/A,3/-A,2 & F,4 F,4 | z/_A,3/-A,2 z/A,3/-A,2 & F,4 F,4 | z/G,3/-G,2 z/G,3/-G,2 & E,4 E,4 |
+[V:RH] z A,/C/ F/A,/C/F/ z A,/C/ F/A,/C/F/ | z A,/C/ F/A,/C/F/ z A,/C/ F/A,/C/F/ | z G,/B,/ F/G,/B,/F/ z G,/B,/ F/G,/B,/F/ |
+[V:LH] z/F,3/-F,2 z/F,3/-F,2 & E,4 E,4 | z/F,3/-F,2 z/F,3/-F,2 & D,4 D,4 | z/D,3/-D,2 z/D,3/-D,2 & G,,4 G,,4 |
+[V:RH] z G,/C/ E/G,/C/E/ z G,/C/ E/G,/C/E/ | z _B,/C/ E/B,/C/E/ z B,/C/ E/B,/C/E/ | z A,/C/ E/A,/C/E/ z A,/C/ E/A,/C/E/ |
+[V:LH] z/E,3/-E,2 z/E,3/-E,2 & C,4 C,4 | z/G,3/-G,2 z/G,3/-G,2 & C,4 C,4 | z/F,3/-F,2 z/F,3/-F,2 & F,,4 F,,4 |
+[V:RH] z A,/C/ _E/A,/C/E/ z A,/C/ E/A,/C/E/ | z B,/C/ D/B,/C/D/ z B,/C/ D/B,/C/D/ | z G,/B,/ D/G,/B,/D/ z G,/B,/ D/G,/B,/D/ |
+[V:LH] z/C,3/-C,2 z/C,3/-C,2 & ^F,,4 F,,4 | z/F,3/-F,2 z/F,3/-F,2 & _A,,4 A,,4 | z/F,3/-F,2 z/F,3/-F,2 & G,,4 G,,4 |
+[V:RH] z G,/C/ E/G,/C/E/ z G,/C/ E/G,/C/E/ | z G,/C/ F/G,/C/F/ z G,/C/ F/G,/C/F/ | z G,/B,/ F/G,/B,/F/ z G,/B,/ F/G,/B,/F/ |
+[V:LH] z/E,3/-E,2 z/E,3/-E,2 & G,,4 G,,4 | z/D,3/-D,2 z/D,3/-D,2 & G,,4 G,,4 | z/D,3/-D,2 z/D,3/-D,2 & G,,4 G,,4 |
+[V:RH] z A,/C/ ^F/A,/C/F/ z A,/C/ F/A,/C/F/ | z G,/C/ G/G,/C/G/ z G,/C/ G/G,/C/G/ | z G,/C/ F/G,/C/F/ z G,/C/ F/G,/C/F/ |
+[V:LH] z/_E,3/-E,2 z/E,3/-E,2 & G,,4 G,,4 | z/=E,3/-E,2 z/E,3/-E,2 & G,,4 G,,4 | z/D,3/-D,2 z/D,3/-D,2 & G,,4 G,,4 |
+[V:RH] z G,/B,/ F/G,/B,/F/ z G,/B,/ F/G,/B,/F/ | z G,/_B,/ E/G,/B,/E/ z G,/B,/ E/G,/B,/E/ | [K:clef=bass] z F,/A,/C/F/C/A,/ C/A,/F,/A,/ F,/D,/F,/D,/ |
+[V:LH] z/D,3/-D,2 z/D,3/-D,2 & G,,4 G,,4 | z/C,3/-C,2 z/C,3/-C,2 & C,,4 C,,4 | z/C,3/-C,2-C,4 & C,,8 |
+[V:RH] [K:clef=treble] z G/B/d/f/d/B/ d/B/G/B/ D/F/E/D/ | !fermata![EGc]8 |]
+[V:LH] z/B,,3/-B,,2-B,,4 & C,,8 | !fermata![C,,C,]8 |]

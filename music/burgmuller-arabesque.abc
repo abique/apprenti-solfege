@@ -1,0 +1,28 @@
+X:1
+T:L'arabesque
+T:Version complète
+C:Friedrich Burgmüller
+M:2/4
+L:1/8
+Q:1/4=138
+K:Am
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+% Allegro scherzando
+[V:RH] z4 | z4 |: !p!(A/B/c/B/ .A) z | (A/B/c/d/ .e) z |
+[V:LH] !p!.[A,CE]2 .[A,CE]2 | .[A,CE]2 .[A,CE]2 |: [A,CE]2 [A,CE]2 | [A,CE]2 [A,CE]2 |
+[V:RH] (d/e/f/g/ .a) z | (a/b/c'/d'/ .e') z | z .e (ef | .d) z d2- |
+[V:LH] [A,DF]2 [A,DF]2 | [A,CE]2 [A,CE]2 | [G,CE]2 [G,CE]2 | [G,B,F]2 [G,B,F]2 |
+[V:RH] d (gde |1 .c) z !sfz!e2 :|2 c2 .c' z |:
+[V:LH] [G,B,F]2 [G,B,F]2 |1 [CE] z E2 :|2 [CE]3 z |:
+[V:RH] !f!(e3 B | c3) (A | e3 B | c3) (A |
+[V:LH] (^G,/A,/B,/A,/ .G,) z | (A,/B,/C/D/ .E) z | (^G,/A,/B,/A,/ .G,) z | (A,/B,/C/D/ .E) z |
+[V:RH] a3 e | f3 e) | (dcBA | ^G2 e2) |
+[V:LH] (^C/D/E/D/ .C) z | [K:clef=treble] (D/E/F/G/ .A) (G | FED^D | E=DCB,) |
+[V:RH] !p!(A/B/c/B/ .A) z | (A/B/c/d/ .e) z | (d/e/f/g/ .a) z | (a/b/c'/d'/ .e') z |
+[V:LH] [K:clef=bass] [A,CE]2 [A,CE]2 | [A,CE]2 [A,CE]2 | [A,DF]2 [A,DF]2 | [A,CE]2 [A,CE]2 |
+[V:RH] z .B (Bc | A2 e2- | e) .B (Bc |1 A4) :|2 (A/B/c/B/ .A) z ||
+[V:LH] [A,DE]2 [A,DE]2 | [A,CE]2 [A,CE]2 | [A,DE]2 [A,DE]2 |1 [A,CE]2 [A,CE]2 :|2 [A,CE]2 [A,CE]2 ||
+[V:RH] (d/e/f/g/ .a) z | (a/b/c'/b/ .a) z | (d'/e'/f'/g'/ .a') z | !f!(E/D/C/B,/ .A,) z | !sfz!!fermata![ca]4 |]
+[V:LH] [A,DF]2 [A,DF]2 | [A,CE]2 [A,CE]2 | [A,DF]2 [A,DF]2 | (E,/D,/C,/B,,/ .A,,) z | !fermata![A,E]4 |]

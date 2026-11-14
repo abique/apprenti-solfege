@@ -1,6 +1,6 @@
 // Service worker : permet d'utiliser l'appli hors ligne une fois installée.
 // Stratégie « réseau d'abord » : toujours la dernière version quand on est en ligne, le cache sinon.
-const CACHE = 'apprenti-solfege-v1';
+const CACHE = 'apprenti-solfege-v2';
 const CORE = [
   './',
   'index.html',
@@ -34,7 +34,19 @@ const CORE = [
   'js/screens/settings.js',
   'js/screens/piano.js',
   'js/screens/progress.js',
+  'js/screens/library.js',
+  'js/screens/score.js',
+  'js/screens/midiplayer.js',
+  'js/library/catalog.js',
+  'js/library/abc.js',
+  'js/library/mystore.js',
+  'js/midifile.js',
+  'vendor/abcjs-basic-min.js',
 ];
+
+// Partitions : mises en cache à la première ouverture (stratégie « réseau d'abord » ci-dessous).
+// Le son du piano échantillonné vient de paulrosen.github.io (police sonore FluidR3, utilisée par abcjs).
+const RUNTIME_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com', 'paulrosen.github.io'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));
@@ -53,8 +65,7 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   const sameOrigin = url.origin === self.location.origin;
-  const isFont = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
-  if (!sameOrigin && !isFont) return;
+  if (!sameOrigin && !RUNTIME_HOSTS.includes(url.hostname)) return;
 
   event.respondWith((async () => {
     const cache = await caches.open(CACHE);

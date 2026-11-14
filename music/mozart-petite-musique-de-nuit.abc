@@ -1,0 +1,18 @@
+X:1
+T:Une petite musique de nuit
+T:Réduction pour piano · K. 525, 1er mouvement (Allegro)
+T:Extrait : mesures 1 à 10
+C:Wolfgang Amadeus Mozart
+M:4/4
+L:1/8
+Q:1/4=120
+K:G
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] !f![DBg]2 z d g2 z d | g d g b d'2 z2 | c'2 z a c'2 z a | c' a f a d2 z2 |
+[V:LH] G,2 z D, G,2 z D, | G, D, G, B, D2 z2 | C2 z A, C2 z A, | C A, F, A, D,2 z2 |
+[V:RH] [DBg] z g3 (ba) g | (a/4g/4a/4g/4 f) f3 (ac') f | (ag) g3 (ba) g |
+[V:LH] [G,B,D][G,B,D][G,B,D][G,B,D] [G,B,D][G,B,D][G,B,D][G,B,D] | [G,CD][G,CD][G,CD][G,CD] [G,CD][G,CD][G,CD][G,CD] | [G,B,D][G,B,D][G,B,D][G,B,D] [G,B,D][G,B,D][G,B,D][G,B,D] |
+[V:RH] (a/4g/4a/4g/4 f) f3 (ac') f | g g {g}(fe/f/) g g {b}(ag/a/) | b b {d'}(c'b/c'/) d'2 z2 |]
+[V:LH] [G,CD][G,CD][G,CD][G,CD] [G,CD][G,CD][G,CD][G,CD] | [G,D][G,D][A,D][A,D] [B,D][B,D][F,D][F,D] | [G,D][G,D][A,D][A,D] [B,D]2 z2 |]

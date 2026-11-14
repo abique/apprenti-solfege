@@ -1,0 +1,26 @@
+X:1
+T:Lettre à Élise
+T:WoO 59 · Extrait : thème, premier épisode et retour du thème
+C:Ludwig van Beethoven
+M:3/8
+L:1/16
+Q:3/8=48
+K:Am
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+% Poco moto
+[V:RH] !pp!e^d |: e^de B=dc | A2 zCEA | B2 zE^GB |
+[V:LH] z2 |: z6 | A,,E,A, z3 | E,,E,^G, z3 |
+[V:RH] c2 zE e^d | e^de B=dc | A2 zCEA |
+[V:LH] A,,E,A, z3 | z6 | A,,E,A, z3 |
+[V:RH] B2 zEcB |1 A4 e^d :|2 A2 zBcd ||
+[V:LH] E,,E,^G, z3 |1 A,,E,A, z3 :|2 A,,E,A, z3 ||
+[V:RH] e3 G fe | d3 F ed | c3 E dc | B2 zE e z |
+[V:LH] C,G,C z3 | G,,G,B, z3 | A,,E,A, z3 | E,,E,E z2 E |
+[V:RH] z e e' z2 ^d | e2 z^d e^d | e^de B=dc |
+[V:LH] [K:clef=treble] e z2 ^d e z | z ^d e z3 | z6 |
+[V:RH] A2 zCEA | B2 zE^GB | c2 zE e^d |
+[V:LH] [K:clef=bass] A,,E,A, z3 | E,,E,^G, z3 | A,,E,A, z3 |
+[V:RH] e^de B=dc | A2 zCEA | B2 zEcB | A2 z2 |]
+[V:LH] z6 | A,,E,A, z3 | E,,E,^G, z3 | [A,,,A,,]2 z2 |]

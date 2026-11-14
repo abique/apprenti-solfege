@@ -1,0 +1,23 @@
+X:1
+T:Ah ! vous dirai-je, maman
+T:Thème, arrangement simple
+C:Wolfgang Amadeus Mozart
+M:2/4
+L:1/8
+Q:1/4=96
+K:C
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] !mf! c2 c2 | g2 g2 | a2 a2 | g4 |
+[V:LH] C,2 E,2 | G,2 E,2 | F,2 A,2 | E,2 C,2 |
+[V:RH] f2 f2 | e2 e2 | d2 d2 | c4 |
+[V:LH] F,2 A,2 | E,2 G,2 | G,,2 B,,2 | C,4 |
+[V:RH] g2 g2 | f2 f2 | e2 e2 | d4 |
+[V:LH] C,2 E,2 | F,2 A,2 | C,2 E,2 | G,,2 B,,2 |
+[V:RH] g2 g2 | f2 f2 | e2 e2 | d4 |
+[V:LH] C,2 E,2 | F,2 A,2 | C,2 E,2 | G,,2 B,,2 |
+[V:RH] c2 c2 | g2 g2 | a2 a2 | g4 |
+[V:LH] C,2 E,2 | G,2 E,2 | F,2 A,2 | E,2 C,2 |
+[V:RH] f2 f2 | e2 e2 | d2 d2 | c4 |]
+[V:LH] F,2 A,2 | E,2 G,2 | G,,2 B,,2 | C,4 |]

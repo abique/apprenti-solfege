@@ -1,0 +1,20 @@
+X:1
+T:Prélude en la majeur
+T:Op. 28 n° 7 (Andantino)
+C:Frédéric Chopin
+M:3/4
+L:1/16
+Q:1/4=66
+K:A
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+% dolce
+[V:RH] !p!E4 | c3d [DGB]4 [DGB]4 | [DGB]8 [df]4 | [^B^d]3[ce] [ca]4 [ca]4 | [ca]8 [Ec]4 |
+[V:LH] z4 | E,,4 [E,E]4 [E,E]4 | [E,E]8 z4 | A,,4 [A,E]4 [A,E]4 | [A,E]8 z4 |
+[V:RH] [C^A]3[D-B] [D-Fd]4 [D-Fd]4 | [DFd]8 [DG]4 | [DG]3[CA] [Cc]4 [Cc]4 | [Cc]8 [E-]4 |
+[V:LH] E,,4 [E,B,]4 [E,B,]4 | [E,B,]8 z4 | A,,,4 [E,A,E]4 [E,A,E]4 | [E,A,E]8 z4 |
+[V:RH] [E-G-c]3[EGd] [DGB]4 [DGB]4 | [DGB]8 [df]4 | [^B^d]3[c-e-] [c-e-ac']4 [ceac']4 | [^Ace^ac']8 [Ac]4 |
+[V:LH] E,,4 [E,E]4 [E,E]4 | [E,E]8 z4 | A,,4 [A,EA]4 [A,EA]4 | [F,CEF]8 z4 |
+[V:RH] [^Ac]3[Bd] [Bf]4 [=Af]4 | [Gf]8 [DG]4 | [DB]3[CA] [A-ca]4 [A-ca]4 | [Aca]8 |]
+[V:LH] B,,,4 [F,D]4 [F,B,D]4 | [E,B,D]8 z4 | A,,,4 [E,A,E]4 [A,E]4 | [A,E]8 |]

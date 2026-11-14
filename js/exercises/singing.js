@@ -14,9 +14,9 @@ const LEVELS = [
   { name: 'Écoute et chante : Do, Mi, Sol', notes: ['C4', 'E4', 'G4'], mode: 'echo', tol: 70, tip: 'Écoute la note, puis chante-la sur « laaa ». Tiens-la jusqu’à remplir le cercle !' },
   { name: 'Écoute et chante : Do à Sol', notes: keys('C4', 'G4'), mode: 'echo', tol: 60, tip: 'Suis la boule : si elle est trop haute, chante plus grave ; trop basse, plus aigu.' },
   { name: 'Écoute et chante : la gamme', notes: SCALE, mode: 'echo', tol: 50, tip: 'Toute la gamme ! Écoute bien avant de chanter.' },
-  { name: 'Avec le Do : Do, Mi, Sol', notes: ['C4', 'E4', 'G4'], mode: 'ref', tol: 50, tip: 'Maintenant je ne joue que le Do. À toi de trouver la note en chantant la gamme dans ta tête !' },
+  { name: 'Avec le Do : Do, Mi, Sol', notes: ['C4', 'E4', 'G4'], mode: 'ref', tol: 50, tip: 'Maintenant je joue d’abord le Do. Essaie de trouver la note en chantant la gamme dans ta tête… et si c’est trop dur, appuie sur « Écouter la note » !' },
   { name: 'Avec le Do : la gamme', notes: SCALE, mode: 'ref', tol: 45, tip: 'Do, Ré, Mi, Fa, Sol, La, Si : monte la gamme dans ta tête jusqu’à la bonne note.' },
-  { name: 'Sans aide', notes: SCALE, mode: 'free', tol: 40, tip: 'Lis la note et chante-la ! (le bouton « Do » est là si besoin)' },
+  { name: 'Sans aide', notes: SCALE, mode: 'free', tol: 40, tip: 'Lis la note et chante-la ! Les boutons « Écouter la note » et « Do » sont là si tu en as besoin.' },
   { name: 'Oreille d’or', notes: SCALE, mode: 'free', tol: 25, tip: 'Niveau expert : il faut chanter très juste !' },
 ];
 
@@ -145,11 +145,12 @@ export default {
     // --- Outils ---
     const playTarget = () => { stopMusic(); playNote(q.midi, { dur: 1.4 }); };
     const playRef = () => { stopMusic(); playNote(60, { dur: 1.2 }); };
-    if (level.mode === 'echo') tools.append(toolButton('▶ Écouter la note', playTarget));
-    tools.append(toolButton('🎵 Do (repère)', playRef));
+    // Les deux aides restent toujours disponibles : pour plus de difficulté, on n'utilise que le Do repère.
+    tools.append(toolButton('▶ Écouter la note', playTarget), toolButton('🎵 Do (repère)', playRef));
     const skip = toolButton('Passer ⏭', () => finish(false));
     tools.append(skip);
-    api.key(' ', level.mode === 'echo' ? playTarget : playRef);
+    api.key(' ', playTarget);
+    api.key('r', playRef);
 
     // --- Boucle d'écoute ---
     let hold = 0;
@@ -199,7 +200,8 @@ export default {
           } else {
             hold = Math.max(0, hold - dt * 0.8);
             const sung = noteName(midiToNote(Math.round(m)));
-            status.textContent = cents > 0 ? `Tu chantes ${sung} : un peu plus bas ⬇` : `Tu chantes ${sung} : un peu plus haut ⬆`;
+            const bit = Math.abs(cents) <= 150 ? 'un peu ' : '';
+            status.textContent = cents > 0 ? `Tu chantes ${sung} : ${bit}plus bas ⬇` : `Tu chantes ${sung} : ${bit}plus haut ⬆`;
           }
           setSinging(true);
         } else {

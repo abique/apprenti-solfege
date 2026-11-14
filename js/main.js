@@ -8,6 +8,9 @@ import { renderHome } from './screens/home.js';
 import { renderSettings } from './screens/settings.js';
 import { renderPiano } from './screens/piano.js';
 import { renderProgress } from './screens/progress.js';
+import { renderLibrary } from './screens/library.js';
+import { renderScore } from './screens/score.js';
+import { renderMidiPlayer } from './screens/midiplayer.js';
 import { runExercise } from './exercises/runner.js';
 import { CATEGORIES } from './exercises/index.js';
 
@@ -33,7 +36,7 @@ function render() {
   const ctx = { app, navigate, onCleanup: (fn) => cleanups.push(fn) };
 
   if (!store.state.profiles.length && route !== 'new') return navigate('#/new');
-  if (['home', 'play', 'piano', 'settings', 'progress', 'edit'].includes(route) && !profile) return navigate('#/profiles');
+  if (['home', 'play', 'piano', 'settings', 'progress', 'edit', 'library', 'piece', 'midi'].includes(route) && !profile) return navigate('#/profiles');
 
   try {
     switch (route) {
@@ -44,6 +47,9 @@ function render() {
       case 'piano': return renderPiano(ctx);
       case 'settings': return renderSettings(ctx);
       case 'progress': return renderProgress(ctx);
+      case 'library': return renderLibrary(ctx, arg);
+      case 'piece': return renderScore(ctx, arg);
+      case 'midi': return renderMidiPlayer(ctx, arg);
       case 'play': {
         const cat = CATEGORIES.find((c) => c.id === arg);
         return cat ? runExercise(ctx, cat) : navigate('#/home');

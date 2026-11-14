@@ -1,0 +1,19 @@
+X:1
+T:Sonatine en do majeur, op. 36 n° 1
+T:1er mouvement (Spiritoso) · Exposition : mesures 1 à 15
+C:Muzio Clementi
+M:4/4
+L:1/8
+Q:1/4=126
+K:C
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] |: c2 ec G2 G2 | c2 ec G2 g2 | fedc BcBc | dcBA G2 z2 |
+[V:LH] |: C,2 z2 z4 | C,2 z2 z4 | C,2 z2 C,2 z2 | G,,2 z2 G,F,E,D, |
+[V:RH] c2 ec G2 G2 | e2 ge c2 ec | dBcA BGA^F | GABc de^fg |
+[V:LH] C,2 z2 z4 | C2 z2 z2 ^F,2 | G,2 C,2 D,2 D,,2 | G,,2 z2 z4 |
+[V:RH] A2 a2 a2 a2 | Bcde ^fgab | c2 c'2 c'2 c'2 | dgbd' c'bag |
+[V:LH] ^F,DA,D F,DA,D | G,2 z2 z4 | A,DCD A,DCD | B,2 z2 z4 |
+[V:RH] ^fegf agfe | edcB dcBA | G4 z4 :|
+[V:LH] C2 z2 C,2 z2 | D,2 z2 D,,2 z2 | G,,B,,D,G, G,,2 z2 :|

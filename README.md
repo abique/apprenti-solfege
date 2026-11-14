@@ -12,6 +12,17 @@ Une petite application web, **100 % statique** (aucun serveur, aucun compte, auc
 | **Les intervalles** | Reconnaître tierces, quintes, octaves… (avec des chansons pour s'en souvenir) | 8 |
 | **Les accords** | Majeur « joyeux », mineur « triste », diminué, augmenté, accords de 7e | 8 |
 | **Piano libre** | Jouer librement et voir la note s'afficher sur la portée | — |
+| **Salle de concert** | Écouter des morceaux avec leur partition : les notes s'allument pendant la lecture | — |
+
+### Salle de concert
+
+- **Grands compositeurs** : Bach, Mozart, Beethoven, Chopin, Liszt, Debussy, Satie (extraits).
+- **Morceaux d'étude** : les classiques de l'apprentissage (Menuet en sol, Sonatine de Clementi, Burgmüller, Album pour la jeunesse de Schumann…), classés par difficulté.
+- **Mes morceaux** : on importe ses propres fichiers **MIDI** (par exemple des musiques de Ghibli ou d'animes achetées) ; ils sont joués avec des notes qui tombent sur le clavier. Ils restent dans le navigateur de l'appareil (IndexedDB) et ne sont envoyés nulle part.
+
+Toutes les partitions fournies sont des œuvres du **domaine public**, transcrites au format [ABC](https://abcnotation.com) dans `music/*.abc`. Les œuvres encore protégées par le droit d'auteur (Yann Tiersen, Joe Hisaishi / Ghibli, musiques d'animes…) ne sont volontairement pas incluses : c'est le rôle de « Mes morceaux ».
+
+Les partitions sont dessinées et jouées par [abcjs](https://github.com/paulrosen/abcjs) (licence MIT, copié dans `vendor/`). Le son de piano échantillonné (police sonore FluidR3) est téléchargé depuis `paulrosen.github.io` la première fois, puis gardé pour le mode hors ligne ; sans connexion, l'appli bascule sur son propre petit synthé. On peut toucher une note de la partition pour l'entendre et voir son nom.
 
 - **Noms des notes** : toujours **Do, Ré, Mi…** en grand, avec la notation **C, D, E…** en petit (réglable : C D E, ドレミ, les deux, ou rien).
 - **Difficulté adaptative** : une partie = 10 questions. Avec 8 bonnes réponses sur les 10 dernières, on passe au niveau suivant ; avec 4 ou moins, on redescend réviser. Dans un niveau, les notes les moins bien maîtrisées reviennent plus souvent.
@@ -59,11 +70,18 @@ js/storage.js                  Joueurs, sauvegarde, export/import
 js/avatars.js                  Créatures SVG et tenues
 js/staff.js, js/piano.js       Portée SVG et clavier tactile
 js/exercises/*.js              Un fichier par exercice (+ runner.js, le moteur commun)
-js/screens/*.js                Écrans : joueurs, profil, accueil, réglages, piano, progrès
+js/screens/*.js                Écrans : joueurs, profil, accueil, réglages, piano, progrès, salle de concert
+js/library/                    Catalogue des morceaux, chargement d'abcjs, stockage des MIDI importés
+js/midifile.js                 Lecture des fichiers MIDI
+music/*.abc                    Partitions du domaine public (format ABC)
+vendor/                        abcjs (licence MIT)
+dev/check-music.html           Vérification des partitions (outil de développement)
 sw.js, manifest.webmanifest    Mode hors ligne et installation
 tests/                         Tests unitaires (Node ≥ 20) : npm test
 ```
 
 Pour ajuster la difficulté, il suffit de modifier le tableau `LEVELS` en haut de chaque fichier d'exercice (notes, intervalles, tolérance de justesse en cents pour le chant, petits conseils affichés par le compagnon).
+
+**Ajouter un morceau à la Salle de concert** : écrire `music/<id>.abc` (deux voix `RH` / `LH`, voir les fichiers existants), l'ajouter dans `js/library/catalog.js`, puis ouvrir <http://localhost:8765/dev/check-music.html> : la page vérifie chaque partition (avertissements, durée de chaque mesure, même nombre de mesures aux deux mains).
 
 Le service worker charge toujours la dernière version quand l'appareil est en ligne et garde une copie pour le mode hors ligne. Si vous ajoutez un fichier JavaScript, ajoutez-le aussi à la liste `CORE` de `sw.js`.

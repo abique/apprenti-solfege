@@ -1,0 +1,16 @@
+X:1
+T:Nocturne en mi bémol majeur
+T:Op. 9 n° 2 (Andante) · Extrait : mesures 1 à 4 · Version simplifiée
+C:Frédéric Chopin
+M:12/8
+L:1/8
+Q:3/8=42
+K:Eb
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+% espressivo dolce (le gruppetto de la mesure 2 est joué comme une note simple)
+[V:RH] !p!B | g3- gfg f3 e2B | g2c c'2g b3 a2g |
+[V:LH] z | E,,[G,E][B,EG] E,[A,D][_CDA] E,,[G,E][B,EG] D,,[G,E][B,EG] | C,,[G,=E][B,EG] C,[G,E][CEB] F,,[F,_D][B,DE] F,,[F,C][A,CF] |
+[V:RH] f3 g2d e3 c3 | !f!Bd'c' b/a/g/a/c/d/ e3 z2 |]
+[V:LH] B,,[F,D][B,DA] =B,,[G,F][DFG] C,[G,E][CEG] =A,,[_G,E][CE_G] | B,,[F,E][B,EA] B,,,[F,D][B,A] E,,[G,E][B,EG] E,[G,E] |]

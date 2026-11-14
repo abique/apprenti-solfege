@@ -1,0 +1,25 @@
+X:1
+T:Musette en ré majeur
+T:Version complète · BWV Anh. 126
+C:Anonyme (attribuée à J.-S. Bach)
+M:2/4
+L:1/8
+Q:1/4=96
+K:D
+%%score {RH | LH}
+V:RH clef=treble
+V:LH clef=bass
+[V:RH] |: a2 g/f/e/d/ | a2 g/f/e/d/ | F/G/A GF | EA FD |
+[V:LH] |: D,,D, D,,D, | D,,D, D,,D, | F,/G,/A, G,F, | E,A, F,D, |
+[V:RH] a2 g/f/e/d/ | a2 g/f/e/d/ | F/G/A GF | EA D2 :|
+[V:LH] D,,D, D,,D, | D,,D, D,,D, | F,/G,/A, G,F, | E,A, D,2 :|
+[V:RH] |: c/d/e c/d/e | ae e2 | ae ae | d/c/B/A/ BE |
+[V:LH] |: A,,A, A,,A, | A,,A, A,,A, | A,,A, A,,A, | A,,A, E,,E, |
+[V:RH] e^dE=d- | dca^g | e^dE=d- | dca^g |
+[V:LH] E,,E, E,,E, | E,,E, E,,E, | E,,E, E,,E, | E,,E, E,,E, |
+[V:RH] e/^d/c/d/ e/d/c/d/ | e^GA=d | c/d/e AD | C/D/E A,2 :|
+[V:LH] E,,E, E,,E, | E,,D, C,D, | E,2 A,,D, | C,/D,/E, A,,2 :|
+[V:RH] a2 g/f/e/d/ | a2 g/f/e/d/ | F/G/A GF | EA FD |
+[V:LH] D,,D, D,,D, | D,,D, D,,D, | F,/G,/A, G,F, | E,A, F,D, |
+[V:RH] a2 g/f/e/d/ | a2 g/f/e/d/ | F/G/A GF | EA !fermata!D2 |]
+[V:LH] D,,D, D,,D, | D,,D, D,,D, | F,/G,/A, G,F, | E,A, !fermata!D,2 |]
