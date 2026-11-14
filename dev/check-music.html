@@ -70,8 +70,11 @@ const tripletsOk = st && Math.abs(st.bars[0] - 0.5) < EPS;
 
 let html = `<p class="${tripletsOk ? 'ok' : 'bad'}">Auto-test triolets : ${tripletsOk ? 'OK' : 'ÉCHEC (' + (st && fmt(st.bars[0])) + ')'}</p>`;
 let total = 0, okCount = 0;
+// Le service worker précharge les partitions pour le mode hors ligne : la liste MUSIC de sw.js doit suivre le catalogue.
+const swText = await (await fetch('../sw.js', { cache: 'no-store' })).text();
 for (const p of PIECES) {
   total++;
+  if (!swText.includes(`'${p.id}'`)) { html += `<h2 class="bad">✗ ${p.id}</h2><p class="bad">Absent de la liste MUSIC de sw.js : la partition ne s'ouvrira pas hors ligne.</p>`; continue; }
   let text;
   try {
     const r = await fetch(`../music/${p.id}.abc`);

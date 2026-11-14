@@ -44,12 +44,24 @@ const CORE = [
   'vendor/abcjs-basic-min.js',
 ];
 
-// Partitions : mises en cache à la première ouverture (stratégie « réseau d'abord » ci-dessous).
-// Le son du piano échantillonné vient de paulrosen.github.io (police sonore FluidR3, utilisée par abcjs).
+// Partitions de la Salle de concert (music/<id>.abc), préchargées pour s'ouvrir aussi hors ligne
+// (environ 75 Ko en tout). dev/check-music.html signale un morceau du catalogue absent d'ici.
+const MUSIC = [
+  'bach-prelude-c', 'mozart-k545', 'mozart-marche-turque', 'mozart-petite-musique-de-nuit',
+  'beethoven-lettre-a-elise', 'beethoven-clair-de-lune', 'chopin-nocturne-9-2', 'chopin-prelude-4',
+  'chopin-prelude-7', 'liszt-reve-d-amour', 'debussy-clair-de-lune', 'debussy-arabesque-1',
+  'satie-gymnopedie-1', 'beethoven-ode-joie', 'mozart-ah-vous-dirai-je', 'schumann-melodie',
+  'petzold-menuet-sol', 'bach-musette-re', 'schumann-gai-laboureur', 'burgmuller-candeur',
+  'clementi-sonatine-36-1', 'beethoven-sonatine-sol', 'tchaikovsky-vieille-chanson',
+  'burgmuller-arabesque',
+].map((id) => `music/${id}.abc`);
+
+// Le son du piano échantillonné vient de paulrosen.github.io (police sonore FluidR3, utilisée par abcjs) :
+// chaque note est mise en cache la première fois qu'elle est jouée (stratégie « réseau d'abord » ci-dessous).
 const RUNTIME_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com', 'paulrosen.github.io'];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(CACHE).then((c) => c.addAll([...CORE, ...MUSIC])).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {

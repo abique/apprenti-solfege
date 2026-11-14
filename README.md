@@ -82,6 +82,6 @@ tests/                         Tests unitaires (Node ≥ 20) : npm test
 
 Pour ajuster la difficulté, il suffit de modifier le tableau `LEVELS` en haut de chaque fichier d'exercice (notes, intervalles, tolérance de justesse en cents pour le chant, petits conseils affichés par le compagnon).
 
-**Ajouter un morceau à la Salle de concert** : écrire `music/<id>.abc` (deux voix `RH` / `LH`, voir les fichiers existants), l'ajouter dans `js/library/catalog.js`, puis ouvrir <http://localhost:8765/dev/check-music.html> : la page vérifie chaque partition (avertissements, durée de chaque mesure, même nombre de mesures aux deux mains).
+**Ajouter un morceau à la Salle de concert** : écrire `music/<id>.abc` (deux voix `RH` / `LH`, voir les fichiers existants), l'ajouter dans `js/library/catalog.js` et dans la liste `MUSIC` de `sw.js` (pour le hors-ligne), puis ouvrir <http://localhost:8765/dev/check-music.html> : la page vérifie chaque partition (présence dans `sw.js`, avertissements, durée de chaque mesure, même nombre de mesures aux deux mains).
 
 Le service worker charge toujours la dernière version quand l'appareil est en ligne et garde une copie pour le mode hors ligne. Si vous ajoutez un fichier JavaScript, ajoutez-le aussi à la liste `CORE` de `sw.js`.
