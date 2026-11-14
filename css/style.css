@@ -523,7 +523,10 @@ input[type="range"] { accent-color: var(--lav); width: min(320px, 100%); height:
   touch-action: none;
   -webkit-user-select: none;
 }
-.piano.mini { height: 110px; pointer-events: none; }
+.mini-piano { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+.piano.mini { height: 130px; }
+.piano.mini .key { cursor: pointer; }
+.mini-piano-hint { text-align: center; font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); }
 .key { position: absolute; top: 0; padding: 0; border: 0; touch-action: none; }
 .key.white {
   height: 100%;
@@ -547,6 +550,7 @@ input[type="range"] { accent-color: var(--lav); width: min(320px, 100%); height:
 .key.white.pressed, .key.white.lit { background: linear-gradient(color-mix(in srgb, var(--kc) 30%, white), color-mix(in srgb, var(--kc) 50%, white)); box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--kc) 60%, white); }
 .key.black.pressed, .key.black.lit { background: linear-gradient(#8a7fd0, #6a5fb5); box-shadow: inset 0 -2px 0 #4a3f8f; }
 .key.good { background: linear-gradient(#c9f5e2, #8de6c1) !important; }
+.key.good.pressed { filter: brightness(0.88); }
 .key.black.good { background: linear-gradient(#3fcf9c, #23a576) !important; }
 .piano.mini .key-label { font-size: 0.75rem; }
 

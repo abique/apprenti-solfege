@@ -101,6 +101,8 @@ export function runExercise(ctx, cat) {
       levelIndex: track.level,
       answer: (correct) => onAnswer(q, correct),
       isAnswered: () => answered,
+      // L'enfant explore la correction : on n'enchaîne plus tout seul, il clique sur « Continuer ».
+      stay: () => clearTimeout(autoTimer),
       onCleanup: (fn) => qCleanups.push(fn),
       key: (k, fn) => { keyMap[k] = fn; },
       mood: setMood,

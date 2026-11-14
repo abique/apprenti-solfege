@@ -100,7 +100,7 @@ export default {
       const [a, b] = q.dir === 'down' ? [q.upper, q.root] : [q.root, q.upper];
       const arrow = q.dir === 'harm' ? ' + ' : ' → ';
       stage.replaceChildren(
-        miniPiano([q.low, q.high], api.secondary),
+        miniPiano([q.low, q.high], api.secondary, { onTouch: api.stay }),
         h('div', { class: 'reveal-text' },
           `${fullName(a, api.secondary)}${arrow}${fullName(b, api.secondary)} : ${iv.name} (${iv.semis} demi-ton${iv.semis > 1 ? 's' : ''})`,
           iv.hint && q.dir === 'up' ? h('span', { class: 'hint' }, `Comme le début de : ${iv.hint}`) : null),

@@ -2,6 +2,7 @@
 import { STEP_COLORS, stepName, stepSubName, midiToNote, noteName, noteSubName } from '../music.js';
 import { answerButton, h } from '../ui.js';
 import { createPiano } from '../piano.js';
+import { playNote } from '../audio.js';
 
 export const ICONS = {
   reading: '<svg viewBox="0 0 48 48" aria-hidden="true"><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 13h38M5 20h38M5 27h38M5 34h38"/></g><ellipse cx="25" cy="30.5" rx="6" ry="4.4" transform="rotate(-20 25 30.5)" fill="currentColor"/><path d="M30.6 29.5V8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',
@@ -43,15 +44,18 @@ export function midiLabel(midi, secondary) {
   return fullName(midiToNote(midi), secondary);
 }
 
-/** Petit clavier non interactif qui montre des notes allumées. */
-export function miniPiano(midis, secondary, cls = 'good') {
+/** Petit clavier qui montre des notes allumées ; on peut toucher les touches pour les écouter. */
+export function miniPiano(midis, secondary, { cls = 'good', onTouch = null } = {}) {
   const lo = Math.min(...midis);
   const hi = Math.max(...midis);
   const from = lo - (((lo % 12) + 12) % 12);
   const to = Math.max(from + 11, hi + (11 - (((hi % 12) + 12) % 12)));
-  const p = createPiano({ from, to, interactive: false, cls: 'mini', secondary });
+  const p = createPiano({
+    from, to, cls: 'mini', secondary,
+    onPress: (m) => { playNote(m, { dur: 1.3, vel: 0.7, quiet: true }); onTouch?.(m); },
+  });
   for (const m of midis) p.mark(m, cls);
-  return p.el;
+  return h('div', { class: 'mini-piano' }, p.el, h('div', { class: 'mini-piano-hint' }, 'Touche le clavier pour écouter les notes 🎹'));
 }
 
 export function toolButton(label, onClick, cls = 'ghost') {

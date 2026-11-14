@@ -76,7 +76,7 @@ export default {
       if (!correct) buttons[level.ids.indexOf(q.key)]?.classList.add('reveal');
       const c = CHORD_BY_ID[q.key];
       stage.replaceChildren(
-        miniPiano(q.notes, api.secondary),
+        miniPiano(q.notes, api.secondary, { onTouch: api.stay }),
         h('div', { class: 'reveal-text' }, `${midiLabel(q.root, api.secondary)} ${c.name.toLowerCase()} : ${c.mood} ${c.emoji}`,
           h('span', { class: 'hint' }, `Notes : ${q.notes.map((m) => midiLabel(m, api.secondary)).join(', ')}`)),
       );
