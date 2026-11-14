@@ -1,6 +1,6 @@
 X:1
 T:Sonatine en sol majeur
-T:Anh. 5 n° 1, 1er mouvement (Moderato) · Extrait : mesures 1 à 24
+T:Anh. 5 n° 1, 1er mouvement (Moderato) · Version complète
 C:Ludwig van Beethoven
 M:C
 L:1/8
@@ -9,6 +9,7 @@ K:G
 %%score {RH | LH}
 V:RH clef=treble
 V:LH clef=bass
+% Attribuée à Beethoven (authenticité douteuse).
 [V:RH] G4 {B}AGAB | G2gd dBBG | c4 {c}BABc |
 [V:LH] [G,B,]4 [F,C]4 | [G,B,]2 z2 z4 | [D,A,]4 [D,G,]4 |
 [V:RH] A2de dBcA | G4 {B}AGAB | c4 {f}edef |
@@ -25,3 +26,9 @@ V:LH clef=bass
 [V:LH] [D,A,]4 [D,G,]4 | [D,F,]2 z2 z4 | G,DB,D G,=FDF |
 [V:RH] c4 {f}edef | gdec BdcA | A4 G2z2 :|
 [V:LH] G,ECE G,CA,C | B,2C2 D2D,2 | G,2D,2 G,,2z2 :|
+[V:RH] d4 d2d2 | d4 g2b2 | d'4 d'2d'2 |
+[V:LH] D,A,CA, D,A,CA, | D,G,B,G, D,G,B,G, | D,F,A,F, D,F,A,F, |
+[V:RH] b4 z4 | d4 d2d2 | d4 g2b2 |
+[V:LH] D,G,B,G, D,G,B,G, | D,A,CA, D,A,CA, | D,G,B,G, D,G,B,G, |
+[V:RH] d'2z2 f2z2 | g2z2 [B,G]2[B,G]2 | [B,G]4 [B,G]4 | [B,G]8 |]
+[V:LH] D,F,A,F, D,A,CA, | [G,B,]2z2 G,,2G,,2 | G,,2G,2 D,2B,,2 | G,,8 |]

@@ -16,7 +16,7 @@ Une petite application web, **100 % statique** (aucun serveur, aucun compte, auc
 
 ### Salle de concert
 
-- **Grands compositeurs** : Bach, Mozart, Beethoven, Chopin, Liszt, Debussy, Satie (extraits).
+- **Grands compositeurs** : Bach, Mozart, Beethoven, Chopin, Liszt, Debussy, Satie — des morceaux (ou mouvements) complets ; quelques-uns sont marqués « version simplifiée » quand les ornements ou les cadences ont dû être écrits plus simplement.
 - **Morceaux d'étude** : les classiques de l'apprentissage (Menuet en sol, Sonatine de Clementi, Burgmüller, Album pour la jeunesse de Schumann…), classés par difficulté.
 - **Mes morceaux** : on importe ses propres fichiers **MIDI** (par exemple des musiques de Ghibli ou d'animes achetées) ; ils sont joués avec des notes qui tombent sur le clavier. Ils restent dans le navigateur de l'appareil (IndexedDB) et ne sont envoyés nulle part.
 

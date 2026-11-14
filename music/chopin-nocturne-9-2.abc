@@ -1,6 +1,6 @@
 X:1
 T:Nocturne en mi bémol majeur
-T:Op. 9 n° 2 (Andante) · Extrait : mesures 1 à 4 · Version simplifiée
+T:Op. 9 n° 2 (Andante) · Version simplifiée
 C:Frédéric Chopin
 M:12/8
 L:1/8
@@ -9,8 +9,41 @@ K:Eb
 %%score {RH | LH}
 V:RH clef=treble
 V:LH clef=bass
-% espressivo dolce (le gruppetto de la mesure 2 est joué comme une note simple)
-[V:RH] !p!B | g3- gfg f3 e2B | g2c c'2g b3 a2g |
+% Texte de la première édition (Schlesinger, Paris 1833), comparé aux éditions Wessel, Kistner et Schirmer.
+% Simplifications : trilles, mordants et gruppettos joués comme une note simple ; trait de la mesure 16 mesuré
+% (10 triples croches + triolet) ; mesure 29 : broderie mi bémol-fa en 6 doubles croches ;
+% mesure 32 : cadence « senza tempo » raccourcie et mesurée (3 motifs au lieu de 13, arpège main gauche en doubles croches).
+[V:RH] !p!B | g3- gfg f3 e2 B | g2 c c'2 g b3 a2 g |
 [V:LH] z | E,,[G,E][B,EG] E,[A,D][_CDA] E,,[G,E][B,EG] D,,[G,E][B,EG] | C,,[G,=E][B,EG] C,[G,E][CEB] F,,[F,_D][B,DE] F,,[F,C][A,CF] |
-[V:RH] f3 g2d e3 c3 | !f!Bd'c' b/a/g/a/c/d/ e3 z2 |]
-[V:LH] B,,[F,D][B,DA] =B,,[G,F][DFG] C,[G,E][CEG] =A,,[_G,E][CE_G] | B,,[F,E][B,EA] B,,,[F,D][B,A] E,,[G,E][B,EG] E,[G,E] |]
+[V:RH] f3 g2 d e3 c3 | !f!Bd'c' b/a/g/a/c/d/ e3 z2 B |
+[V:LH] B,,[F,D][B,DA] =B,,[G,F][DFG] C,[G,E][CEG] =A,,[_G,E][CE_G] | B,,[F,E][B,EA] B,,,[F,D][B,A] E,,[G,E][B,EG] E,[G,E][B,EG] |
+[V:RH] g3 f/g/f/=e/f/g/ f _e2- e/f/e/d/e/f/ | g/=B/c/d/c/f/ =e/a/g/d'/c'/g/ b3 a2 g |
+[V:LH] E,[G,E][B,EG] E,[A,D][_CDA] E,[G,E][B,EG] D,[G,E][B,EG] | C,[G,=E][B,EG] C,[G,E][CEB] F,,[F,_D][B,DE] F,,[F,C][A,CF] |
+[V:RH] f3 ggd e3 c3 | Bd'c' b/a/g/a/{a}c/d/ e3- ede |
+[V:LH] B,,[F,D][B,DA] =B,,[G,F][DFG] C,[G,E][CEG] =A,,[_G,E][CE_G] | B,,[F,E][B,EA] B,,,[F,D][B,A] E,,[G,E][B,EG] E,[G,E][B,EG] |
+[V:RH] f3 g2 f f3 c3 | eee ed/e/f3/4e/4 e3 B3 |
+[V:LH] B,,[F,D][B,DF] B,,[F,D][B,DF] =A,,[F,C][CF] A,,[F,C][CF] | A,,[E,C][A,CE] A,,,[E,_C][A,CE] E,,[G,E][B,EG] E,[G,E][B,EG] |
+[V:RH] b3 =a2 g [=Af]3 [Bd]3 | [Ge]3 [=Ad][Ac][Ad] [FB][^F=B][=EB] [E_Bc][=FAc][_Ad] |
+[V:LH] =E,,[=E,_D][B,DG] E,,[E,C][B,CG] F,,[F,E][CE=A] G,,[G,D][B,DB] | C,,[G,E][CEG] F,,[F,E][CEF] [B,D][=A,^D]^G, =G,[F,CE][B,F] |
+[V:RH] {GBe}g2 =A/B/ _c/B/^c/d/g3/4f/4 f2 e- e/f/e/d/e/f/ | g/=B/c/_d/c/f/ =e/a/g/d'/c'/g/ b3 a2 g |
+[V:LH] E,,[G,E][B,EG] E,[A,D][B,DA] E,[G,E][B,EG] D,[G,E][B,EG] | C,[G,=E][B,EG] C,[G,E][CEB] F,,[F,_D][B,DE] F,,[F,C][A,CF] |
+[V:RH] f3 ggd e3 c3 | Bd'^c' =c'/4=b/4_b/4=a/4_a/4f/4d/4_c/4B/4d/4(3g/4f/4e/4 e3- ede |
+[V:LH] B,,[F,D][B,DA] =B,,[G,F][DFG] C,[G,E][CEG] =A,,[_G,E][CE_G] | B,,[F,E][B,EA] B,,,[F,D][B,DA] E,,[G,E][B,G] E,[G,E][B,G] |
+[V:RH] f3 g2 f f3 c3 | e3/4e3/4e3/4e3/4 ed/e/f3/4e/4 e3 B3 |
+[V:LH] B,,[F,D][B,DF] B,,[F,D][B,DF] =A,,[F,C][CF] A,,[F,C][CF] | A,,[E,C][A,CE] A,,,[E,_C][A,CE] E,,[G,E][B,EG] E,[G,E][B,EG] |
+[V:RH] b3 =a2 g [=Af]3 [Bd]3 | [Ge]3 [=Ad][Ac][Ad] [FB][^F=B][=EB] [E_Bc][=FAc][_Ad] |
+[V:LH] =E,,[=E,_D][B,DG] E,,[E,C][B,CG] F,,[F,E][CE=A] G,,[G,D][B,DB] | C,,[G,E][CEG] F,,[F,E][CEF] [B,D][=A,^D]^G, =G,[F,CE][B,F] |
+[V:RH] {GBe}g2 =A/B/ _c/B/^c/d/g3/4f/4 f2 e- e/f/e/d/e/f/ | g/=B/c/_d/c/f/ =e/a/g/d'/c'/g/ {g}b3 a2 g |
+[V:LH] E,,[G,E][B,EG] E,[A,D][B,DA] E,[G,E][B,EG] D,[G,E][B,EG] | C,[G,=E][B,EG] C,[G,E][CEB] F,,[F,B,_D][B,DE] F,,[F,C][A,CF] |
+[V:RH] f3 ggd e3 c3 | B/d'^c'3/4=c'/=b/4 _b/=a/_a/4=A/4B/4=B/4(3c/4^c/4d/4(3g/4f/4e/4 e6 |
+[V:LH] B,,[F,D][B,DA] =B,,[G,F][DFG] C,[G,E][CEG] =A,,[_G,E][CE_G] | B,,[F,E][B,EA] B,,,[F,D][B,DA] E,,[G,E][B,EG] E,[G,E][B,EG] |
+[V:RH] e3 fef g6 | e3- e/f/e/f/e/f/ g2 e e'd'c' |
+[V:LH] E,,[A,_CE][CEA] E,[A,CE][CEA] E,,[G,E][B,EG] E,[G,E][B,EG] | E,,[A,_CE][CEA] E,[A,CE][CEA] E,,[G,B,E][B,EG] E,[G,E][B,EG] |
+[V:RH] b2 =a _acd ef/e/d/e/ {e}g'f'/e'/d'/c'/ | _c'b__b b/a/a/g/g3/4f/4 e6 |
+[V:LH] E,[F,D][B,A] E,[F,D][B,A] E,[G,E][B,G] =A,,[F,E][CEF] | B,,[F,E][B,EA] B,,,[F,D][B,DA] E,,[G,E][B,EG] E,[G,E][B,EG] |
+[V:RH] e3- e/f/e/f/e/f/ g3 z3 | eA/B/A/G/ A/_c/e/a/e'/ z/4 f'/4 g'e' [e'e'']2 [d'd''][c'c''] |
+[V:LH] A,,,[E,A,_C][A,CE] [CEA][A,CE][E,A,C] E,,[G,E][B,EG] E,[G,E][B,EG] | A,,,[E,A,_C][A,CE] [E,A,C][A,CE][E,A,C] E,,[G,E][B,EG] =A,,[F,E][CEF] |
+[V:RH] [_c'_c''][bb'][__b__b'] [aa'][gg'][dd'] [ee'] [e'-e''-]2 [e'e''][ff'][=c'=c''] | [_c'_c'']4 [bb']_c''/4b'/4=c''/4=a'/4 _c''/4b'/4=c''/4a'/4_c''/4b'/4=c''/4a'/4 b'/4=a'/4_a'/4g'/4f'/4d'/4e'/4_c'/4 b/a/c/d/ |
+[V:LH] B,,[F,B,E][B,EA] =B,,[G,F][DFG] C,[G,E][CG] =A,,[F,-CE][F,CEF] | B,,,/B,,/F,/A,/ D/B,/F/A/ [K:clef=treble] d2-d6 [K:clef=bass] |
+[V:RH] [Ge]Bg [Ge]Bg [Ge]Bg [Ge]Bg | [Ge]3 [ge']3 [G,E]3-[G,E]2 |]
+[V:LH] E,,[B,-][B,B,,] E,B,B,, E,,[B,-][B,B,,] E,[B,-][B,-B,,] | [B,E,]3 [EB]3 [E,,B,,]3-[E,,B,,]2 |]
