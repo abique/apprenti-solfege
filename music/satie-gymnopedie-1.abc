@@ -1,6 +1,6 @@
 X:1
 T:Gymnopédie n° 1
-T:Extrait : mesures 1 à 39
+T:Version complète
 C:Erik Satie
 M:3/4
 L:1/4
@@ -9,7 +9,7 @@ K:D
 %%score {RH | LH}
 V:RH clef=treble
 V:LH clef=bass
-% Lent et douloureux
+% Lent et douloureux (la reprise est écrite en entier)
 [V:RH] z [B,DF]2 | z [A,CF]2 | z [B,DF]2 | z [A,CF]2 |
 [V:LH] G,,3 | D,,3 | G,,3 | D,,3 |
 [V:RH] z !pp!f a & z [B,DF]2 | g f c & z [A,CF]2 | B c d & z [B,DF]2 | A3 & z [A,CF]2 |
@@ -28,5 +28,25 @@ V:LH clef=bass
 [V:LH] z [=C,E,A,D]2 & D,,3 | z [=C,F,A,D]2 & D,,3 | E,,3 | F,,3 |
 [V:RH] B A B & z [B,DF]2 | c d e & z [CEA]2 | c d e & z [A,CFA]2 |
 [V:LH] B,,,3 | E,,3 | E,,3 |
-[V:RH] F3 & z [A,D] [B,DG] | [=CEA=c]3 | [DFAd]3 |]
-[V:LH] z B,, E, & E,,3 | [A,,G,]3 | [D,,A,,D,]3 |]
+[V:RH] F3 & z [A,D] [B,DG] | [=CEA=c]3 | [DFAd]3 ||
+[V:LH] z B,, E, & E,,3 | [A,,G,]3 | [D,,A,,D,]3 ||
+[V:RH] z [B,DF]2 | z [A,CF]2 | z [B,DF]2 | z [A,CF]2 |
+[V:LH] G,,3 | D,,3 | G,,3 | D,,3 |
+[V:RH] z !pp!f a & z [B,DF]2 | g f c & z [A,CF]2 | B c d & z [B,DF]2 | A3 & z [A,CF]2 |
+[V:LH] G,,3 | D,,3 | G,,3 | D,,3 |
+[V:RH] F3- & z [B,DF]2 | F3- & z [A,CF]2 | F3- & z [B,DF]2 | F3 & z [A,CF]2 |
+[V:LH] G,,3 | D,,3 | G,,3 | D,,3 |
+[V:RH] z !pp!f a & z [B,DF]2 | g f c & z [A,CF]2 | B c d & z [B,DF]2 | A3 & z [A,CF]2 |
+[V:LH] G,,3 | D,,3 | G,,3 | D,,3 |
+[V:RH] c3 & z [A,CF]2 | f3 & z [B,DF]2 | E3- | E3- | E3 |
+[V:LH] F,,3 | B,,,3 | z [G,B,]2 & E,,3 | z [B,DG]2 & E,,3 | z [=F,A,D]2 & D,,3 |
+[V:RH] A B =c | e d B | d =c B | d3- |
+[V:LH] z !p![A,=CE]2 & A,,,3 | z [G,B,E]2 & D,,3 | z [D,G,B,E]2 & D,,3 | z [=C,E,A,D]2 & D,,3 |
+[V:RH] d2 d | e =f g | a =c d | e d B |
+[V:LH] z [=C,F,A,D]2 & D,,3 | z [A,=C=F]2 & D,,3 | z [A,=CE]2 & D,,3 | z [D,G,B,E]2 & D,,3 |
+[V:RH] d3- | d2 d |
+[V:LH] z [=C,E,A,D]2 & D,,3 | z [=C,F,A,D]2 & D,,3 |
+[V:RH] g3 & z [B,EG]2 | =f3 & z [A,D=FA]2 | B =c =f & z [A,=C=F]2 | e d =c & z [=CEA]2 |
+[V:LH] E,,3 | E,,3 | E,,3 | E,,3 |
+[V:RH] e d =c & z [A,=C=FA]2 | =F3 & z [A,D] [B,DG] | [=CEA=c]3 | [D=FAd]3 |]
+[V:LH] E,,3 | z B,, E, & E,,3 | [A,,G,]3 | [D,,A,,D,]3 |]

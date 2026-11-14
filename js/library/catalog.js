@@ -47,6 +47,8 @@ export const PIECES = [
     desc: 'Liszt était le pianiste le plus célèbre de son temps, une vraie star ! Ce « Rêve d’amour » était d’abord une chanson.' },
   { id: 'debussy-clair-de-lune', section: 'maitres', composer: 'debussy', title: 'Clair de lune', work: 'Suite bergamasque', year: '1905',
     desc: 'Debussy peint avec les sons, comme les peintres impressionnistes avec la lumière. Ferme les yeux et imagine la lune…' },
+  { id: 'debussy-arabesque-1', section: 'maitres', composer: 'debussy', title: 'Première arabesque', work: 'L. 66 n° 1', year: '1891', search: 'Deux arabesques Debussy',
+    desc: 'L’une des premières œuvres de Debussy pour piano. Les triolets de la main droite dessinent des volutes, comme les arabesques d’un dessin.' },
   { id: 'satie-gymnopedie-1', section: 'maitres', composer: 'satie', title: 'Gymnopédie n° 1', work: '', year: '1888',
     desc: 'Erik Satie, compositeur français un peu farfelu, a écrit cette musique calme et rêveuse à 22 ans. La main gauche se balance comme un bateau.' },
 

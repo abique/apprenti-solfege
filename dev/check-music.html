@@ -31,6 +31,8 @@ function measures(tune) {
       staff.voices.forEach((voice, vi) => {
         const key = `${si}.${vi}`;
         const r = result[key] || (result[key] = { bars: [], cur: 0, meter, meters: [] });
+        // Un changement de mesure en début de ligne est rangé par abcjs sur la portée, pas dans la voix.
+        if (staff.meter?.value?.[0]) r.meter = Number(staff.meter.value[0].num) / Number(staff.meter.value[0].den);
         let triplet = 1;
         for (const el of voice) {
           if (el.el_type === 'meter' && el.value?.[0]) r.meter = Number(el.value[0].num) / Number(el.value[0].den);
