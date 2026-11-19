@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Évolutions des compagnons (aperçu)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  main { max-width: 1040px; margin: 0 auto; padding: 18px 16px 60px; display: flex; flex-direction: column; gap: 22px; }
+  h1 { font-size: clamp(1.6rem, 5vw, 2.3rem); margin: 0; }
+  h2 { font-size: 1.35rem; margin: 0 0 4px; }
+  section.card { padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+  .lead { margin: 4px 0 0; color: var(--ink-soft); font-weight: 700; }
+
+  .picker { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 8px; }
+  .picker button { border: 2px solid var(--line); background: #fff; border-radius: 16px; padding: 6px 4px 4px; font-weight: 800; font-size: .85rem; display: flex; flex-direction: column; align-items: center; }
+  .picker button.on { border-color: var(--lav); background: #f4f0ff; box-shadow: 0 3px 0 #d8ceff; }
+  .picker svg { width: 60px; height: 60px; }
+
+  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: end; }
+  .stage { text-align: center; position: relative; }
+  .stage svg { width: 100%; max-width: 200px; height: auto; aspect-ratio: 1; }
+  .stage-name { font-weight: 800; font-size: 1.15rem; }
+  .stage-need { color: var(--ink-soft); font-weight: 700; font-size: .9rem; }
+  .stage:not(:first-child)::before { content: '➜'; position: absolute; left: -12px; top: 38%; color: #c9bff0; font-size: 1.3rem; }
+  @media (max-width: 640px) { .stages { grid-template-columns: repeat(2, 1fr); row-gap: 18px; } .stage:nth-child(3)::before { display: none; } }
+
+  .powers-layout { display: grid; grid-template-columns: minmax(200px, 300px) 1fr; gap: 18px; align-items: start; }
+  @media (max-width: 720px) { .powers-layout { grid-template-columns: 1fr; } }
+  .big { position: sticky; top: 10px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .big svg { width: 100%; max-width: 280px; height: auto; aspect-ratio: 1; }
+  .power { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 10px 12px; border-radius: 16px; border: 2px solid var(--line); background: #fff; }
+  .power-title { font-weight: 800; }
+  .power-title small { display: block; color: var(--ink-soft); font-weight: 700; }
+  .tiers { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tiers button { border: 2px solid var(--line); background: #fff; border-radius: 12px; padding: 2px 6px; display: flex; align-items: center; gap: 2px; font-weight: 800; font-size: .8rem; min-height: 40px; }
+  .tiers button.on { border-color: var(--lav); background: #f4f0ff; }
+  .tiers svg { width: 22px; height: auto; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .controls select { border: 2px solid var(--line); border-radius: 12px; padding: 8px; background: #fff; font-weight: 700; }
+
+  .all { display: grid; grid-template-columns: auto repeat(4, 1fr); gap: 4px 8px; align-items: center; }
+  .all .head { font-weight: 800; text-align: center; color: var(--ink-soft); font-size: .9rem; }
+  .all .name { font-weight: 800; font-size: .9rem; }
+  .all svg { width: 100%; max-width: 96px; height: auto; display: block; margin: 0 auto; aspect-ratio: 1; }
+
+  .evolve-overlay { position: fixed; inset: 0; background: rgba(59, 51, 85, .55); display: grid; place-items: center; z-index: 50; animation: fadeIn .2s; }
+  .evolve-box { background: #fff; border-radius: 28px; padding: 22px; width: min(92vw, 420px); text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; box-shadow: var(--shadow); }
+  .evolve-box .stagebox { width: min(70vw, 280px); aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle, #e9ddff 0%, #f6f0ff 45%, #fff 72%); }
+  .evolve-box .stagebox svg { width: 100%; height: 100%; }
+  .evolve-box p { margin: 0; font-weight: 800; font-size: 1.2rem; min-height: 1.6em; }
+  .glowing { animation: evoWiggle 1.6s ease-in-out; }
+  .flash { animation: evoFlash .9s ease-in forwards; }
+  .born { animation: evoBorn .7s cubic-bezier(.3, 1.6, .5, 1); }
+  @keyframes evoWiggle { 0%, 100% { transform: none; filter: none; } 20% { transform: rotate(-6deg); } 40% { transform: rotate(6deg) scale(1.03); filter: brightness(1.2); } 60% { transform: rotate(-6deg) scale(1.05); filter: brightness(1.5); } 80% { transform: rotate(6deg) scale(1.07); filter: brightness(2); } }
+  @keyframes evoFlash { from { filter: brightness(2) drop-shadow(0 0 4px #ffd84d); transform: scale(1.07); } to { filter: brightness(0) invert(1) drop-shadow(0 0 14px #ffc400); transform: scale(1.18); } }
+  @keyframes evoBorn { from { filter: brightness(0) invert(1) drop-shadow(0 0 14px #ffc400); transform: scale(.6); } to { filter: none; transform: none; } }
+</style>
+</head>
+<body>
+<div id="bg" aria-hidden="true"></div>
+<main id="page">
+  <header>
+    <h1>Les évolutions des compagnons ✨</h1>
+    <p class="lead">Aperçu à montrer aux enfants avant de l’ajouter dans l’appli. Choisissez votre compagnon, puis dites ce que vous en pensez !</p>
+  </header>
+  <section class="card">
+    <h2>1. Choisis ton compagnon</h2>
+    <div class="picker" id="picker"></div>
+  </section>
+  <section class="card">
+    <h2>2. Il grandit avec toi</h2>
+    <p class="lead" style="margin:0">Chaque niveau réussi dans un exercice le fait progresser. Il ne redescend jamais.</p>
+    <div class="stages" id="stages"></div>
+    <div class="controls"><button class="btn big" type="button" id="evolve">✨ Voir une évolution</button></div>
+  </section>
+  <section class="card">
+    <h2>3. Ses pouvoirs musicaux</h2>
+    <p class="lead" style="margin:0">Chaque exercice lui donne un pouvoir. Sa couleur change avec la médaille : bronze, argent, or, platine, diamant.</p>
+    <div class="powers-layout">
+      <div class="big">
+        <div id="big"></div>
+        <div class="segmented" id="stagePick"></div>
+        <div class="controls">
+          <button class="btn ghost" type="button" id="allMax">Tout en diamant</button>
+          <button class="btn ghost" type="button" id="none">Aucun pouvoir</button>
+        </div>
+        <div class="controls">
+          <select id="mood" aria-label="Humeur"><option value="idle">Normal</option><option value="happy">Content</option><option value="sad">Triste</option></select>
+          <select id="acc" aria-label="Tenue"></select>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px" id="powers"></div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>4. Tous les compagnons</h2>
+    <div class="all" id="all"></div>
+  </section>
+</main>
+<div id="overlay-root"></div>
+<div id="fx-root"></div>
+<script type="module">
+import { CREATURES, ACCESSORIES, STAGES, POWERS, creatureSVG } from '../js/avatars.js';
+import { CATEGORIES } from '../js/exercises/index.js';
+import { MEDALS } from '../js/adaptive.js';
+import { h, medalSVG, confetti } from '../js/ui.js';
+import { sfxLevelUp, sfxPop, getCtx } from '../js/audio.js';
+
+const state = { id: 'mochi', stage: 2, powers: { reading: 3, listening: 2, singing: 0, intervals: 4, chords: 1 }, mood: 'idle', acc: 'none' };
+const catTitle = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.title]));
+const $ = (id) => document.getElementById(id);
+
+function renderPicker() {
+  $('picker').replaceChildren(...CREATURES.map((c) => h('button', {
+    type: 'button', class: c.id === state.id ? 'on' : '', 'aria-pressed': String(c.id === state.id),
+    onclick: () => { state.id = c.id; renderAll(); },
+    html: creatureSVG(c.id, { size: 60 }) + c.name,
+  })));
+}
+
+function renderStages() {
+  $('stages').replaceChildren(...STAGES.map((s, i) => h('div', { class: 'stage' },
+    h('div', { html: creatureSVG(state.id, { stage: i, mood: i === 3 ? 'happy' : 'idle', size: '100%' }) }),
+    h('div', { class: 'stage-name' }, s.name),
+    h('div', { class: 'stage-need' }, i === 0 ? 'Au début' : `Après ${s.need} niveaux réussis`))));
+}
+
+function renderBig() {
+  $('big').innerHTML = creatureSVG(state.id, { stage: state.stage, powers: state.powers, mood: state.mood, accessory: state.acc, size: '100%' });
+  $('stagePick').replaceChildren(...STAGES.map((s, i) => h('button', { type: 'button', class: i === state.stage ? 'on' : '', onclick: () => { state.stage = i; renderBig(); } }, s.name)));
+}
+
+function renderPowers() {
+  $('powers').replaceChildren(...POWERS.map((p) => h('div', { class: 'power' },
+    h('div', { class: 'power-title' }, `${p.name}`, h('small', {}, `${catTitle[p.id]} : ${p.desc}`)),
+    h('div', { class: 'tiers' }, MEDALS.map((m, t) => h('button', {
+      type: 'button', class: (state.powers[p.id] || 0) === t ? 'on' : '', title: m.name,
+      onclick: () => { state.powers[p.id] = t; renderPowers(); renderBig(); },
+      html: (t ? medalSVG(t, 22) : '') + (t ? '' : 'Aucune'),
+    }))))));
+}
+
+function renderAll() {
+  renderPicker();
+  renderStages();
+  renderBig();
+  renderPowers();
+}
+
+function renderGrid() {
+  const cells = [h('div'), ...STAGES.map((s) => h('div', { class: 'head' }, s.name))];
+  for (const c of CREATURES) {
+    cells.push(h('div', { class: 'name' }, c.name));
+    STAGES.forEach((s, i) => cells.push(h('div', { html: creatureSVG(c.id, { stage: i, size: '100%' }) })));
+  }
+  $('all').replaceChildren(...cells);
+}
+
+// Petite cérémonie d'évolution : il brille, flash blanc, et apparaît sous sa nouvelle forme.
+let evoFrom = 0;
+async function evolve() {
+  getCtx();
+  const from = evoFrom;
+  const to = (from + 1) % STAGES.length;
+  evoFrom = to === STAGES.length - 1 ? 0 : to;
+  const name = CREATURES.find((c) => c.id === state.id).name;
+  const stagebox = h('div', { class: 'stagebox', html: creatureSVG(state.id, { stage: from, size: '100%' }) });
+  const text = h('p', {}, 'Oh ? Quelque chose se passe…');
+  const close = h('button', { class: 'btn big', type: 'button', style: 'visibility:hidden', onclick: () => overlay.remove() }, 'Trop bien !');
+  const overlay = h('div', { class: 'evolve-overlay' }, h('div', { class: 'evolve-box' }, stagebox, text, close));
+  $('overlay-root').append(overlay);
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  const svg = () => stagebox.firstElementChild;
+  await wait(400);
+  svg().classList.add('glowing');
+  sfxPop();
+  await wait(1600);
+  svg().classList.remove('glowing');
+  svg().classList.add('flash');
+  await wait(900);
+  stagebox.innerHTML = creatureSVG(state.id, { stage: to, mood: 'happy', size: '100%' });
+  svg().classList.add('born');
+  sfxLevelUp();
+  confetti(90);
+  text.textContent = to === 0 ? `${name} redevient bébé (pour la démo) !` : `${name} est devenu ${STAGES[to].name} !`;
+  close.style.visibility = 'visible';
+  close.focus();
+}
+
+$('evolve').onclick = evolve;
+$('allMax').onclick = () => { for (const p of POWERS) state.powers[p.id] = 5; renderPowers(); renderBig(); };
+$('none').onclick = () => { for (const p of POWERS) state.powers[p.id] = 0; renderPowers(); renderBig(); };
+$('mood').onchange = (e) => { state.mood = e.target.value; renderBig(); };
+$('acc').replaceChildren(...ACCESSORIES.map((a) => h('option', { value: a.id }, a.id === 'none' ? 'Sans tenue' : a.name)));
+$('acc').onchange = (e) => { state.acc = e.target.value; renderBig(); };
+
+renderAll();
+renderGrid();
+</script>
+</body>
+</html>

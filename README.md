@@ -78,6 +78,7 @@ js/midifile.js                 Lecture des fichiers MIDI
 music/*.abc                    Partitions du domaine public (format ABC)
 vendor/                        abcjs (licence MIT)
 dev/check-music.html           Vérification des partitions (outil de développement)
+dev/compagnons.html            Aperçu des évolutions et pouvoirs des compagnons
 sw.js, manifest.webmanifest    Mode hors ligne et installation
 tests/                         Tests unitaires (Node ≥ 20) : npm test
 ```
