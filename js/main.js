@@ -12,6 +12,8 @@ import { renderLibrary } from './screens/library.js';
 import { renderScore } from './screens/score.js';
 import { renderMidiPlayer } from './screens/midiplayer.js';
 import { runExercise } from './exercises/runner.js';
+import { runChrono, unlockedLevels } from './exercises/chrono.js';
+import { renderChronoSetup, CHRONO_CATEGORIES } from './screens/chrono.js';
 import { CATEGORIES } from './exercises/index.js';
 
 const app = document.getElementById('app');
@@ -31,12 +33,12 @@ function render() {
   app.replaceChildren();
   window.scrollTo(0, 0);
 
-  const [route = '', arg] = location.hash.replace(/^#\/?/, '').split('/');
+  const [route = '', arg, arg2] = location.hash.replace(/^#\/?/, '').split('/');
   const profile = store.profile;
   const ctx = { app, navigate, onCleanup: (fn) => cleanups.push(fn) };
 
   if (!store.state.profiles.length && route !== 'new') return navigate('#/new');
-  if (['home', 'play', 'piano', 'settings', 'progress', 'edit', 'library', 'piece', 'midi'].includes(route) && !profile) return navigate('#/profiles');
+  if (['home', 'play', 'chrono', 'piano', 'settings', 'progress', 'edit', 'library', 'piece', 'midi'].includes(route) && !profile) return navigate('#/profiles');
 
   try {
     switch (route) {
@@ -53,6 +55,14 @@ function render() {
       case 'play': {
         const cat = CATEGORIES.find((c) => c.id === arg);
         return cat ? runExercise(ctx, cat) : navigate('#/home');
+      }
+      case 'chrono': {
+        // #/chrono/<exercice> : choix du niveau ; #/chrono/<exercice>/<niveau> : défi.
+        const cat = CHRONO_CATEGORIES.find((c) => c.id === arg);
+        const level = Number(arg2);
+        if (cat && arg2 && Number.isInteger(level) && level >= 0 && level <= unlockedLevels(profile, cat)) return runChrono(ctx, cat, level);
+        if (cat && arg2) return navigate(`#/chrono/${cat.id}`);
+        return renderChronoSetup(ctx, arg);
       }
       default: return navigate(profile ? '#/home' : '#/profiles');
     }

@@ -30,6 +30,8 @@ export default {
   icon: ICONS.listening,
   ask: (q, level) => (level.ref ? 'Écoute le Do… puis la note mystère !' : 'Quelle est cette note ?'),
   levels: LEVELS,
+  // Défi chrono : délai avant la question suivante après une bonne réponse / une erreur (ms).
+  chrono: { correctDelay: 700, wrongDelay: 1800 },
 
   allItemKeys() {
     return CHROMA.map(String);

@@ -34,6 +34,8 @@ export default {
   icon: ICONS.reading,
   ask: 'Comment s’appelle cette note ?',
   levels: LEVELS,
+  // Défi chrono : délai avant la question suivante après une bonne réponse / une erreur (ms).
+  chrono: { correctDelay: 350, wrongDelay: 1500 },
 
   allItemKeys() {
     return [...new Set(LEVELS.flatMap((l) => l.items))];

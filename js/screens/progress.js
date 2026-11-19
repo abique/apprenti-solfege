@@ -26,6 +26,7 @@ export function renderProgress({ app, navigate }) {
       progressBar(t?.mastered ? 1 : t ? levelProgress(t) : 0, 'Progression'),
       h('div', { class: 'muted' }, t?.total ? `${t.total} réponses · ${acc} % de réussite · ${t.rounds || 0} partie${t.rounds > 1 ? 's' : ''}` : 'Pas encore commencé'),
       hist.length ? h('div', { class: 'history', title: 'Scores des dernières parties' }, hist) : null,
+      chronoLine(p, c),
       h('div', { class: 'item-chips' }, chips));
   });
 
@@ -38,4 +39,13 @@ export function renderProgress({ app, navigate }) {
       h('span', { class: 'item-chip lv1' }, 'à travailler'), ' ', h('span', { class: 'item-chip' }, 'pas encore vu')),
     ...sections,
   );
+}
+
+/** Records du défi chrono, niveau par niveau (bonnes réponses en 60 s). */
+function chronoLine(p, c) {
+  const entries = Object.entries(p.chrono?.[c.id] || {}).filter(([, r]) => r.runs).sort((a, b) => a[0] - b[0]);
+  if (!c.chrono || !entries.length) return null;
+  const runs = entries.reduce((n, [, r]) => n + r.runs, 0);
+  return h('div', { class: 'muted' }, `⏱ Défi chrono (${runs} défi${runs > 1 ? 's' : ''}) : `,
+    entries.map(([level, r]) => `niveau ${Number(level) + 1} · record ${r.best}`).join(' ; '));
 }

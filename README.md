@@ -11,6 +11,7 @@ Une petite application web, **100 % statique** (aucun serveur, aucun compte, auc
 | **Chanter juste** | Chanter la note demandée : le micro vérifie la justesse (peu importe l'octave) | 7 |
 | **Les intervalles** | Reconnaître tierces, quintes, octaves… (avec des chansons pour s'en souvenir) | 8 |
 | **Les accords** | Majeur « joyeux », mineur « triste », diminué, augmenté, accords de 7e | 8 |
+| **Défi chrono** | 60 secondes pour lire ou reconnaître à l'oreille un maximum de notes, sur un niveau déjà atteint | — |
 | **Piano libre** | Jouer librement et voir la note s'afficher sur la portée | — |
 | **Salle de concert** | Écouter des morceaux avec leur partition : les notes s'allument pendant la lecture | — |
 
@@ -26,6 +27,7 @@ Les partitions sont dessinées et jouées par [abcjs](https://github.com/paulros
 
 - **Noms des notes** : toujours **Do, Ré, Mi…** en grand, avec la notation **C, D, E…** en petit (réglable : C D E, ドレミ, les deux, ou rien).
 - **Difficulté adaptative** : une partie = 10 questions. Avec 8 bonnes réponses sur les 10 dernières, on passe au niveau suivant ; avec 4 ou moins, on redescend réviser. Dans un niveau, les notes les moins bien maîtrisées reviennent plus souvent.
+- **Défi chrono** (lire les notes, oreille musicale) : pour gagner en vitesse sur ce qu'on connaît déjà. On choisit un niveau déjà atteint, on se compare seulement à son propre record (par niveau), une erreur montre la bonne réponse et fait perdre un peu de temps, et le défi ne change ni le niveau ni les médailles. Pour l'activer sur un autre exercice, il suffit d'y ajouter une propriété `chrono` (délais après une bonne réponse et après une erreur).
 - **Médailles** par exercice : Débutant → Bronze → Argent → Or → Platine → Diamant. On ne perd jamais une médaille gagnée.
 - **Plusieurs joueurs** sur le même appareil, chacun avec son prénom, son compagnon (12 petites créatures originales) et éventuellement sa photo prise à la webcam.
 - **♪ à gagner** pour débloquer des tenues pour le compagnon (béret, hachimaki, casque audio, couronne…).

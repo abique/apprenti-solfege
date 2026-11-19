@@ -43,6 +43,7 @@ export function normalizeProfile(p) {
     notes: Number(p.notes) || 0, // ♪ gagnées (monnaie du jeu)
     streak: { days: 0, last: null, ...(p.streak || {}) },
     progress: p.progress && typeof p.progress === 'object' ? p.progress : {},
+    chrono: p.chrono && typeof p.chrono === 'object' ? p.chrono : {}, // records du défi chrono
   };
 }
 
@@ -122,6 +123,35 @@ export function touchStreak(profile) {
   s.days = s.last === todayKey(y) ? s.days + 1 : 1;
   s.last = today;
   return true;
+}
+
+/**
+ * Enregistre un défi chrono. Le record est gardé par exercice et par niveau :
+ * on se compare à soi-même, à difficulté égale.
+ * ♪ gagnées : 1 pour 5 bonnes réponses, +3 quand on bat un record existant.
+ */
+export function recordChrono(profile, catId, level, score, errors = 0) {
+  const byCat = profile.chrono[catId] || (profile.chrono[catId] = {});
+  const r = byCat[level] || (byCat[level] = { best: 0, runs: 0, history: [] });
+  const prevBest = r.best;
+  r.runs++;
+  r.last = Date.now();
+  r.history = [...r.history, { score, errors }].slice(-20);
+  const isRecord = score > prevBest;
+  if (isRecord) r.best = score;
+  const bonus = isRecord && prevBest > 0 ? 3 : 0;
+  const reward = Math.floor(score / 5) + bonus;
+  profile.notes += reward;
+  return { best: r.best, prevBest, isRecord, reward, bonus };
+}
+
+/** Meilleur record d'un exercice, tous niveaux confondus : { level, best } ou null. */
+export function bestChrono(profile, catId) {
+  let top = null;
+  for (const [level, r] of Object.entries(profile.chrono?.[catId] || {})) {
+    if (r.best > 0 && (!top || Number(level) > top.level || (Number(level) === top.level && r.best > top.best))) top = { level: Number(level), best: r.best };
+  }
+  return top;
 }
 
 export async function requestPersistence() {

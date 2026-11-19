@@ -1,8 +1,9 @@
 // Menu principal : compagnon, catégories d'exercices, médailles.
-import { store } from '../storage.js';
+import { store, bestChrono } from '../storage.js';
 import { avatarHTML, creatureSVG } from '../avatars.js';
 import { medalTier, levelProgress, MEDALS } from '../adaptive.js';
 import { CATEGORIES } from '../exercises/index.js';
+import { CHRONO_CATEGORIES } from './chrono.js';
 import { ICONS } from '../exercises/common.js';
 import { h, pick, animate, medalSVG, progressBar, iconButton } from '../ui.js';
 import { playNote } from '../audio.js';
@@ -60,6 +61,14 @@ export function renderHome({ app, navigate }) {
         progressBar(t?.mastered ? 1 : t ? levelProgress(t) : 0, 'Progression')));
   });
 
+  const records = CHRONO_CATEGORIES.map((c) => ({ c, r: bestChrono(p, c.id) })).filter((x) => x.r);
+  const chrono = h('button', { class: 'cat-card', type: 'button', style: '--c:#f5a524', onclick: () => navigate('#/chrono') },
+    h('div', { class: 'cat-icon', html: ICONS.chrono }),
+    h('div', {}, h('div', { class: 'cat-title' }, 'Défi chrono'), h('div', { class: 'cat-sub' }, '60 secondes pour lire ou reconnaître un maximum de notes')),
+    h('div', { class: 'cat-foot' }, records.length
+      ? records.map((x) => h('div', { class: 'cat-level' }, `🏆 ${x.r.best} · ${x.c.title} (niveau ${x.r.level + 1})`))
+      : h('div', { class: 'cat-level' }, 'Bats ton propre record ⏱')));
+
   const piano = h('button', { class: 'cat-card', type: 'button', style: '--c:#ff9a62', onclick: () => navigate('#/piano') },
     h('div', { class: 'cat-icon', html: ICONS.piano }),
     h('div', {}, h('div', { class: 'cat-title' }, 'Piano libre'), h('div', { class: 'cat-sub' }, 'Jouer, écouter et voir les notes sur la portée')),
@@ -72,5 +81,5 @@ export function renderHome({ app, navigate }) {
 
   app.append(topbar,
     h('div', { class: 'home-hero' }, companion, bubble),
-    h('div', { class: 'cat-grid' }, cards, piano, concert));
+    h('div', { class: 'cat-grid' }, cards, chrono, piano, concert));
 }
